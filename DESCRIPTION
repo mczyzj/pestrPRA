@@ -1,7 +1,7 @@
 Package: pestrPRA
 Type: Package
 Title: What the Package Does (Title Case)
-Version: 0.1.0.1
+Version: 0.2
 Author: person("Michal Jan", "Czyz", email = "m.czyz.j@gmail.com",
   role = c("aut", "cre"))
 Maintainer: The package maintainer <yourself@somewhere.net>

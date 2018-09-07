@@ -2,4 +2,3 @@
 
 export(eppo_invasive_html)
 export(eppo_invasive_pdf)
-export(invasive_plants_PRA1)
