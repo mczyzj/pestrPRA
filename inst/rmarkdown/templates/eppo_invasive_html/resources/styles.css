@@ -1,0 +1,10 @@
+.guidelines {
+  background-color: yellow;
+  border-style: dotted;
+  border-color: green;
+  font-style: italic;
+}
+
+ol {
+  font-weight: bold;
+}
