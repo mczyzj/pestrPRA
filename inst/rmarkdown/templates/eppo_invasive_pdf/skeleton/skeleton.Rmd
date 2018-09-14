@@ -741,5 +741,3 @@ When referring to websites, include the web address and date accessed.</code></p
 \\end{tcolorbox}')
 }
 ```
-
-# References

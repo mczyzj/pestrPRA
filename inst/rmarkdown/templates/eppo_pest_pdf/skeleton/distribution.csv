@@ -1,0 +1,10 @@
+Continent,Distribution ,Provide comments on the pest status in the different countries where it occurs ,Reference
+Africa ,"(list countries, or provide a general indication , e.g. present in West Africa)","(e.g. widespread, native, non-native, established) ",@eppo2018; @xie2015
+North America,Canada,Alberta,@xie2016; @xie2015
+North America,Canada,Ontario,
+North America,Mexico,,
+South America,Brazil,Rio de Janeiro,
+Asia,Chiny,,
+Asia,Bangladesh,,
+Europe,,,
+Oceania,,,

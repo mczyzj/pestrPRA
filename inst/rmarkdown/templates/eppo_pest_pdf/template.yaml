@@ -1,0 +1,4 @@
+name: Express Pest Risk Analysis
+description: >
+ Template for Express Pest Risk Analysis (EPPO)
+create_dir: true
