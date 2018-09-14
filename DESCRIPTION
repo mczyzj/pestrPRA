@@ -16,6 +16,7 @@ Imports:
     magrittr,
     rmarkdown (>= 1.10),
     tinytex,
+    utils,
     yaml
 License: CC BY 4.0
 Encoding: UTF-8
