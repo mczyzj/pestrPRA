@@ -10,7 +10,7 @@
 #'
 #' @inheritParams rmarkdown::pdf_document
 #' @param extra_dependencies,... Additional function arguments to pass to the
-#'        base R Markdown HTML output formatter
+#'        base R Markdown pdf output formatter
 #' @rdname eppoPRA
 #' @export
 eppo_invasive_pdf <- function(toc = FALSE, highlight = "default", ...){
@@ -40,11 +40,11 @@ eppo_invasive_html <- function(toc = FALSE, highlight = "default", ...){
 
   expressPRA <- bookdown::html_document2(template = 'template.html',
                                          toc = toc,
-                                         highlight = highlight,
+                                         highlight = highlight, ...)
                                          #keep_tex = TRUE,
                                          #dev = 'cairo_pdf',
                                          #latex_engine = 'xelatex',
-                                         ...)
+
 
 #  old_opt <- getOption("bookdown.post.latex")
 #  options(bookdown.post.latex = fix_envs)
@@ -54,6 +54,38 @@ eppo_invasive_html <- function(toc = FALSE, highlight = "default", ...){
 
 }
 
+#' @inheritParams rmarkdown::pdf_document
+#' @param extra_dependencies,... Additional function arguments to pass to the
+#'        base R Markdown pdf output formatter
+#' @rdname eppoPRA
+#' @export
+eppo_pest_pdf <- function(toc = FALSE, highlight = "default", ...){
+
+  expressPRA <- bookdown::html_document2(template = 'template.pdf',
+                                          toc = toc,
+                                          highlight = highlight, ...)
+                                          #keep_tex = TRUE,
+                                          #dev = 'cairo_pdf',
+                                          #latex_engine = 'xelatex',
+
+  expressPRA
+}
+#' @inheritParams rmarkdown::html_document
+#' @param extra_dependencies,... Additional function arguments to pass to the
+#'        base R Markdown HTML output formatter
+#' @rdname eppoPRA
+#' @export
+eppo_pest_pdf <- function(toc = FALSE, highlight = "default", ...){
+  expressPRA <- bookdown::html_document2(template = 'template.html',
+                                          toc = toc,
+                                          highlight = highlight,
+                                          #keep_tex = TRUE,
+                                          #dev = 'cairo_pdf',
+                                          #latex_engine = 'xelatex',
+                                          ...)
+
+  expressPRA
+}
 #fix_envs = function(x){
 #  beg_reg <- '^\\s*\\\\begin\\{.*\\}'
 #  end_reg <- '^\\s*\\\\end\\{.*\\}'

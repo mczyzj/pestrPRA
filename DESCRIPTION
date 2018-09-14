@@ -1,7 +1,7 @@
 Package: pestrPRA
 Type: Package
 Title: What the Package Does (Title Case)
-Version: 0.2
+Version: 0.3
 Author: person("Michal Jan", "Czyz", email = "m.czyz.j@gmail.com",
   role = c("aut", "cre"))
 Maintainer: The package maintainer <yourself@somewhere.net>
@@ -11,7 +11,6 @@ Description: This package contains RMarkdown templates to create Express Pest
 Depends: R (>= 3.3.0)
 Imports:
     dplyr,
-    kableExtra,
     kableExtra,
     knitr,
     magrittr,

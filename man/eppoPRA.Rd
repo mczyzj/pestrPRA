@@ -4,11 +4,16 @@
 \name{eppo_invasive_pdf}
 \alias{eppo_invasive_pdf}
 \alias{eppo_invasive_html}
+\alias{eppo_pest_pdf}
 \title{EPPO Express Pest Risk Analysis Reports}
 \usage{
 eppo_invasive_pdf(toc = FALSE, highlight = "default", ...)
 
 eppo_invasive_html(toc = FALSE, highlight = "default", ...)
+
+eppo_pest_pdf(toc = FALSE, highlight = "default", ...)
+
+eppo_pest_pdf(toc = FALSE, highlight = "default", ...)
 }
 \arguments{
 \item{toc}{\code{TRUE} to include a table of contents in the output}
@@ -18,7 +23,13 @@ eppo_invasive_html(toc = FALSE, highlight = "default", ...)
 "zenburn", and "haddock". Pass \code{NULL} to prevent syntax highlighting.}
 
 \item{extra_dependencies, ...}{Additional function arguments to pass to the
+base R Markdown pdf output formatter}
+
+\item{extra_dependencies, ...}{Additional function arguments to pass to the
 base R Markdown HTML output formatter}
+
+\item{extra_dependencies, ...}{Additional function arguments to pass to the
+base R Markdown pdf output formatter}
 
 \item{extra_dependencies, ...}{Additional function arguments to pass to the
 base R Markdown HTML output formatter}
