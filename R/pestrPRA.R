@@ -1,7 +1,11 @@
 #' EPPO Express Pest Risk Analysis Reports
 #'
-#' Template for creating an R markdown document using the EPPO Express
-#' Pest Risk Analysis reports
+#' Templates for creating an R markdown document using the EPPO Express
+#' Pest Risk Analysis (PRA) reports. \code{eppo_invasive_pdf} returns template
+#' for invasive plant species PRA (that can be compiled with bookdown to both
+#' html and pdf).
+#' \code{eppo_pest_pdf} returns template for common pest PRA (that can be
+#' compiled with bookdown to both html and pdf).
 #'
 #' Based on the
 #' \href{https://www.eppo.int/RESOURCES/eppo_standards/pm5_pra}{EPPO PRA}.
