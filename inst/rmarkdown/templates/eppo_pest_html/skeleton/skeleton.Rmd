@@ -1,0 +1,77 @@
+---
+title: "Express Pest Risk Analysis:"
+pest: "pest name"
+taxoauthor: "Linnaeus, 1735"
+author:
+  - name: Author One
+    email: author_one@pra.org
+    affiliationNum: A
+    footnote: Corresponding Author
+  - name: Author Two
+    affiliationNum: B
+  - name: Author Three
+    affiliationNum: B
+  - name: Author Four
+    affiliationNum: C
+address:
+  - affiliationNum: A
+    code: Some Institute of Technology
+    address: Department, Street, City, State, Zip
+  - affiliationNum: B
+    code: Another University
+    address: Department, Street, City, State, Zip
+  - affiliationNum: C
+    code: Ministry of Knowledge
+    address: Department, Street, City, State, Zip
+keywords:
+  - "Pest Risk Assessment"
+  - "EPPO"
+date: "August 9, 2018^[This report was generated using R [@rcore2018] with knitr and bookdown [@xie2015; @xie2016]]"
+site: bookdown::bookdown_site
+abstract: |
+  `r if(knitr:::is_latex_output()) paste(readLines("abstract.md"), collapse = '\n  ')`
+bibliography: [pra.bib]
+link-citations: yes
+geometry: margin=1in
+graphics: yes
+compact-title: true
+always_allow_html: yes
+classoption: a4paper
+urlcolor: Cerulean
+linkcolor: TealBlue
+citecolor: TealBlue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library('kableExtra')
+library('magrittr')
+library('dplyr')
+if(knitr::is_latex_output()) {
+  options(knitr.table.format = "latex")
+} else {
+    options(knitr.table.format = "html")
+}
+formatingCite <- function(x) {
+  paste0('\\citeauthor{', x, '}, ', '\\hyperlink{ref-', x, '}',
+                          '{\\citeyear{', x, '}}')
+}
+```
+
+`r if (knitr:::is_html_output()) '# Summary {-}'`
+
+```{r echo = F, eval = T, results = 'asis'}
+if (knitr::is_html_output()) {
+ PRA_area                  <- c('Specify the PRA area being assessed.')
+ endangered_area           <- c('See question 14.')
+ main_conclusions          <- c('')
+ overall_risk              <- c('Copy your answer from Q 16.')
+ phytosanitary_measures    <- c('Indicate whether the pest should be recommended for immediate action in the PRA area. Summarize your answer from Q 17.')
+ phytosanitary_risk        <- c('Low/Moderate/High')
+ uncertainty_of_assessment <- c('Low/Moderate/High')
+ other_recommendations     <- c('<ul><li>Inform EPPO or IPPC or EU.</li>Inform industry, other stakeholders.</li><li>State whether a detailed PRA is needed to reduce level of uncertainty (if so, state which parts of the PRA should be focused on).</li><li>Specify if surveys are recommended to confirm the pest status.</li><li>State what additional work/research could help making a decision.</li></ul>')
+ cat('<div class="abstract-box"><div class="title-box">Summary of the Express Pest Risk Analysis for <i>', rmarkdown::metadata$pest, '</i></div>')
+ cat('<p><b>PRA area: </b>',  PRA_area, '</p><p><b>Describe the endangered area: </b>', endangered_area, '</p><p><b>Main conclusions:</b><br>', main_conclusions, '</p><p><b>Overall assessment of risk: </b><span style="background-color: #ff6347;">', overall_risk, '</span></p><p><b>Phytosanitary Measures: </b>', phytosanitary_measures, '</p>', '<div class="rating-box"><div class="top">Phytosanitary Risk</div><div class="center">',phytosanitary_risk,'</div></div><div class="rating-box"><div class="top">Uncertainty of risk assessment</div><div class="center">', uncertainty_of_assessment, '</div></div><br>
+<b>Other recomendations: </b>',other_recommendations ,'</div>')
+ }
+```
