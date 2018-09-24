@@ -61,7 +61,7 @@ eppo_invasive_html <- function(toc = FALSE, highlight = "default", ...){
 #' @export
 eppo_pest_pdf <- function(toc = FALSE, highlight = "default", ...){
 
-  expressPRA <- bookdown::html_document2(template = 'template.pdf',
+  expressPRA <- bookdown::pdf_document2(template = 'template.pdf',
                                           toc = toc,
                                           highlight = highlight, ...)
                                           #keep_tex = TRUE,
@@ -75,7 +75,7 @@ eppo_pest_pdf <- function(toc = FALSE, highlight = "default", ...){
 #'        base R Markdown HTML output formatter
 #' @rdname eppoPRA
 #' @export
-eppo_pest_pdf <- function(toc = FALSE, highlight = "default", ...){
+eppo_pest_html <- function(toc = FALSE, highlight = "default", ...){
   expressPRA <- bookdown::html_document2(template = 'template.html',
                                           toc = toc,
                                           highlight = highlight,

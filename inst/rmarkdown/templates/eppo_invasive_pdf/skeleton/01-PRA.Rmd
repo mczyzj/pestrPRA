@@ -54,10 +54,22 @@ kable(Q6, col.names = c('Continent',
   column_spec(4, width = '10em') %>%
   collapse_rows(columns = 1:2, valign = "middle")
 }  else {
-  kable(Q6, 'latex', booktabs = T, longtable = T,
+  Q6L <- Q6$Reference
+  
+  Q6L <- Q6L %>%
+    gsub('@', '', .) %>%
+    strsplit('; ') %>%
+    lapply(formatingCite) %>%
+    lapply(paste, collapse = '; ') %>% 
+    unlist %>% 
+    data.frame(References = .) %>% 
+    bind_cols(Q6, .) %>%
+    select(-'Reference')
+  Q6L$References[Q6L$References == '\\citeauthor{}, \\hyperlink{ref-}{\\citeyear{}}'] <- NA
+  kable(Q6L, 'latex', booktabs = T, longtable = T,
         col.names = c('Continent', 'Distributo',
                       'Provide comments on the pest status in the different countries where it occurs',
-                      'Reference')) %>%
+                      'References'), escape = F) %>%
     kable_styling(full_width = T,
                   latex_options = c('striped', 'hold_position', 'repeat_header')) %>%
     column_spec(1, width = '2.5cm') %>%
@@ -89,13 +101,25 @@ kable(Q7, col.names = c('Habitat (main)',
   row_spec(row = 0, bold = T, background = '#f5f6fa') %>%
   column_spec(1:6, width = '10em')
 } else {
-  kable(Q7, 'latex', booktabs = T,
+  Q7L <- Q7$Reference
+  
+  Q7L <- Q7L %>%
+    gsub('@', '', .) %>%
+    strsplit('; ') %>%
+    lapply(formatingCite) %>%
+    lapply(paste, collapse = '; ') %>% 
+    unlist %>% 
+    data.frame(References = .) %>% 
+    bind_cols(Q7, .) %>%
+    select(-'Reference')
+  Q7L$References[Q7L$References == '\\citeauthor{}, \\hyperlink{ref-}{\\citeyear{}}'] <- NA
+  kable(Q7L, 'latex', booktabs = T,
     col.names = c('Habitat (main)',
                'EUNIS habitat types',
                'Status of habitat (e.g. threatened or protected)',
                'Is the pest present in the habitat in the PRA area',
                'Comments',
-               'References')) %>%
+               'References'), escape = F) %>%
     kable_styling(full_width = T,
                   latex_options = c('striped', 'hold_position', 'repeat_header')) %>%
     row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
@@ -326,6 +350,7 @@ Regulating services\\tabto{7.1cm}Cultural services\\newline
 \\tabto{0.5cm}*\\hspace{0.3cm}Pest and disease regulation
 \\end{tcolorbox}')
 }
+```
 
 ```{r echo = F, eval = T}
 Q12_02 <- read.csv('eco_services.csv',
@@ -342,11 +367,23 @@ kable(Q12_02, col.names = c('Ecosystem service',
   column_spec(1, width = '10em') %>%
   column_spec(c(2,4), width = '12em')
 } else {
-  kable(Q12_02, booktabs = T, longtable = T,
+  Q12_02L <- Q12_02$Reference
+  
+  Q12_02L <- Q12_02L %>%
+    gsub('@', '', .) %>%
+    strsplit('; ') %>%
+    lapply(formatingCite) %>%
+    lapply(paste, collapse = '; ') %>% 
+    unlist %>% 
+    data.frame(References = .) %>% 
+    bind_cols(Q12_02, .) %>%
+    select(-'Reference')
+  Q12_02L$References[Q12_02L$References == '\\citeauthor{}, \\hyperlink{ref-}{\\citeyear{}}'] <- NA
+  kable(Q12_02L, booktabs = T, longtable = T,
         col.names = c('Ecosystem service',
                       'Does the pest impact on this Ecosystem service?',
                       'Short description of impact',
-                      'Reference')) %>%
+                      'References'), escape = F) %>%
   kable_styling(full_width = T, latex_options = c('striped', 'hold_position', 'repeat_header')) %>%
   row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
   column_spec(1, width = '3cm') %>%
