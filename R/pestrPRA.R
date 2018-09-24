@@ -5,7 +5,9 @@
 #' for invasive plant species PRA (that can be compiled with bookdown to both
 #' html and pdf).
 #' \code{eppo_pest_pdf} returns template for common pest PRA (that can be
-#' compiled with bookdown to both html and pdf).
+#' compiled with bookdown to both html and pdf). \code{eppo_pest_pdf_pl} returns
+#' template for common pest PRA in polish that contain elements of
+#' PRA forinvasive species. It also can be compiled to html and pdf format.
 #'
 #' Based on the
 #' \href{https://www.eppo.int/RESOURCES/eppo_standards/pm5_pra}{EPPO PRA}.
@@ -37,12 +39,29 @@ eppo_invasive_pdf <- function(toc = FALSE, highlight = "default", ...){
 #' @export
 eppo_pest_pdf <- function(toc = FALSE, highlight = "default", ...){
 
-  expressPRA <- bookdown::pdf_document2(template = 'template.pdf',
+  expressPRA <- bookdown::pdf_document2(template = 'template.tex',
                                           toc = toc,
                                           highlight = highlight, ...)
                                           #keep_tex = TRUE,
                                           #dev = 'cairo_pdf',
                                           #latex_engine = 'xelatex',
+
+  expressPRA
+}
+
+#' @inheritParams rmarkdown::pdf_document
+#' @param extra_dependencies,... Additional function arguments to pass to the
+#'        base R Markdown pdf output formatter
+#' @rdname eppoPRA
+#' @export
+eppo_pest_pdf_pl <- function(toc = FALSE, highlight = "default", ...){
+
+  expressPRA <- bookdown::pdf_document2(template = 'template.tex',
+                                        toc = toc,
+                                        highlight = highlight, ...)
+  #keep_tex = TRUE,
+  #dev = 'cairo_pdf',
+  #latex_engine = 'xelatex',
 
   expressPRA
 }

@@ -7,7 +7,7 @@ Author: person("Michal Jan", "Czyz", email = "m.czyz.j@gmail.com",
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: This package contains RMarkdown templates to create Express Pest
     Risk Analysis reports in pdf and html format. It is based on EPPO Standards
-    PM 5/5(1) and PM 5/6(1).
+    PM 5/5(1) and PM 5/6(1). Supports polish version of PRA.
 Depends: R (>= 3.3.0)
 Imports:
     bookdown,

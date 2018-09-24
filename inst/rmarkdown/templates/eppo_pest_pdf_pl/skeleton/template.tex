@@ -190,9 +190,6 @@ $endif$
 \let\rmarkdownfootnote\footnote%
 \def\footnote{\protect\rmarkdownfootnote}
 
-%%% delete abstract name
-\renewcommand{\abstractname}{\vspace{-\baselineskip}}
-
 $if(compact-title)$
 %%% Change title format to be more compact
 \usepackage{titling}
@@ -273,14 +270,13 @@ $header-includes$
 $endfor$
 
 \begin{document}
+$if(title)$
+\maketitle
+$endif$
 $if(abstract)$
 \begin{abstract}
 $abstract$
 \end{abstract}
-$endif$
-
-$if(title)$
-\maketitle
 $endif$
 
 $for(include-before)$

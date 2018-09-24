@@ -1,0 +1,20 @@
+bookdown::pdf_document2:
+  template: template.tex
+  includes:
+    in_header: preamble.tex
+  keep_tex: yes
+  dev: "cairo_pdf"
+  latex_engine: pdflatex
+  citation_package: none
+  toc: no
+  highlight: null
+  pandoc_args: [ "--csl", "elsevier-harvard.csl"]
+bookdown::html_document2:
+  toc: no
+  css: styles.css
+  template: template.html4
+  highlight: null
+  citation_package: none
+  pandoc_args: [
+    "--csl", "elsevier-harvard.csl",
+    "--standalone"]

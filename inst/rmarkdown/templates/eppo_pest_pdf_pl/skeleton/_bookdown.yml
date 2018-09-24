@@ -1,0 +1,4 @@
+language:
+  ui:
+    chapter_name: "Etap "
+output_dir: "docs"

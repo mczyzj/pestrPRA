@@ -4,11 +4,14 @@
 \name{eppo_invasive_pdf}
 \alias{eppo_invasive_pdf}
 \alias{eppo_pest_pdf}
+\alias{eppo_pest_pdf_pl}
 \title{EPPO Express Pest Risk Analysis Reports}
 \usage{
 eppo_invasive_pdf(toc = FALSE, highlight = "default", ...)
 
 eppo_pest_pdf(toc = FALSE, highlight = "default", ...)
+
+eppo_pest_pdf_pl(toc = FALSE, highlight = "default", ...)
 }
 \arguments{
 \item{toc}{\code{TRUE} to include a table of contents in the output}
@@ -22,6 +25,9 @@ base R Markdown pdf output formatter}
 
 \item{extra_dependencies, ...}{Additional function arguments to pass to the
 base R Markdown pdf output formatter}
+
+\item{extra_dependencies, ...}{Additional function arguments to pass to the
+base R Markdown pdf output formatter}
 }
 \description{
 Templates for creating an R markdown document using the EPPO Express
@@ -29,7 +35,9 @@ Pest Risk Analysis (PRA) reports. \code{eppo_invasive_pdf} returns template
 for invasive plant species PRA (that can be compiled with bookdown to both
 html and pdf).
 \code{eppo_pest_pdf} returns template for common pest PRA (that can be
-compiled with bookdown to both html and pdf).
+compiled with bookdown to both html and pdf). \code{eppo_pest_pdf_pl} returns
+template for common pest PRA in polish that contain elements of
+PRA forinvasive species. It also can be compiled to html and pdf format.
 }
 \details{
 Based on the

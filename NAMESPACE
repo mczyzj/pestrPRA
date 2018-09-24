@@ -2,6 +2,7 @@
 
 export(eppo_invasive_pdf)
 export(eppo_pest_pdf)
+export(eppo_pest_pdf_pl)
 import(dplyr)
 importFrom(magrittr,"%>%")
 importFrom(rlang,.data)
