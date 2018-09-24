@@ -1,40 +1,39 @@
-# Initiation
+# Wstęp
 
-Reason for performing the PRA: *(e.g. interceptions, outbreak)*
+Powód wykonania PRA: *(np. przechwycenie, pojaw)*
 
-PRA area: *specify the PRA area being assessed*
+Obszar PRA: **Rzeczpospolita Polska**
 
-# Pest risk assessment
+# Ocena zagrożenia Agrofagiem
 
-(@) Taxonomy:
+(@) Taksonomia:
 
-*e.g. Genus, species/ subspecies, Authority, Family, Order, Kingdom. Include information on strains and populations, etc. if relevant, and synonyms if appropriate.* [@eppo2018]
+*np. Rodzaj, gatunek/ podgatunek, autorstwo, Rodzina, Rząd, Królestwo. Załączyć informację o szczepie i poplacjach, etc. jeśli ma zastosowanie oraz synonimy jeśli istotne.* [@eppo2018]
 
-**Common name:**
+**Nazwa powszechna:**
 
-(@) Pest overview:
+(@) Informacje ogólne o agrofagu:
 
-- **Summarize the life cycle** *(e.g. length of life cycle, location of different life stages, temperature thresholds, humidity - requirements) and other relevant information (damage should be described in Q 12). If a datasheet is available, this section should only include the basic information. If available place illustrations of the pest and the symptoms caused in Appendix 1.*
+- **Podsumować cykl życiowy** *(np. długość cyklu życiowego, lokacje różnych stadiów życiowych, zakresy temperatury, wymagania co do wilgotności) oraz inne odpowiednie informacje (szkody powinny być wymienione w punkcie 12). Jeżeli dostępne są inne dokumenty, w tej sekcji należy uwzględnić jedynie podstawowe informacje. W razie możliwości odpowiednie zdjęcia szkodnika i objawów umieścić w Załączniku 1.*
+- **Rośliny żywicielskie** *(więcej szczegółów należy podać w Punkcie 7)*
+- **Symptomy** 
+- **Wykrywanie i identyfikacja** *(odnotować czy dostępne są protokoły diagnostyczne). Określić czy i jak agrofag może być schwytany.*
+- *Określić czy istnieje już odpowiednie PRA. Inne dokumenty (np. zarządzanie, dokumentacja wysyłkowa, analiza strat i zysków) mogą dostarczyć użytecznych informacji do wykonania PRA, ale nie mogą być uznane za odpowiednie PRA.*
+- *Opisać wszystkie korzyści socjoekonomiczne gatunku.*
 
-- **Host plants** *(for pests)/habitats (for invasive plants) (more detail should be provided in Q 7)*
-- **Symptoms** 
-- **Detection and identification** *(note if a diagnostic protocol is available). State if and how the pest can be trapped.*
-- *Detail if a relevant PRA exists. Note that studies such as a management or contingency plans and/or cost-benefit analysis may also provide useful information for performing a PRA, but can usually not be considered as relevant PRAs.*
-- *Describe any socio-economic benefits of the species.*
+(@) Czy agrofag jest wektorem?
 
-(@) Is the pest a vector?
+Tak / Nie
 
-Yes / No
+(@) Czy do wejścia lub rozprzestrzenienia agrofaga potrzebny jest wektor.
 
-(@) Is the vector needed for pest entry or spread?
+Tak / Nie
 
-Yes / No
+(@) Status regulacji agrofaga:
 
-(@) Regulatory status of the pest:
+*Czy szkodnik jest już regulowany przez którekolwiek NPPO, lub rekomendowany do regulacji przez którekolwiek RPPO? (W celu uzyskania informacji można się odnieść do stron EEPO PQR, RPPO i IPPC jako dodatek to standardowych mechanizmów wyszukiwania informacji).*
 
-*Is the pest already regulated by any NPPO, or recommended for regulation by any RPPO? (Assessors can check this by reference to EPPO PQR, RPPO and IPPC websites in addition to normal search mechanisms).*
-
-(@) Distribution:
+(@) Rozmieszczenie:
 
 ```{r echo = F, eval = T}
 Q6 <- read.csv('distribution.csv',
@@ -80,11 +79,11 @@ kable(Q6, col.names = c('Continent',
 }
 ```
 
-*Information on distribution may be retrieved from [PQR](http://www.eppo.int/DATABASES/pqr/pqr.htm), [CAPRA datasets](http://capra.eppo.org/), CABI maps, etc. Comments on distribution: (e.g. if known, please comment on the area of origin, how the pest has spread and on any evidence of increasing range / frequency of introductions)*
+*Informacje na temat rozmieszczenia mogą być pobrane z [PQR](http://www.eppo.int/DATABASES/pqr/pqr.htm), [CAPRA datasets](http://capra.eppo.org/), map CABI, etc. Komentarz na temat występowania: (np. czy znany jest obszar pochodzenia, w jaki sposób agrofag się rozprzestrzenił, dowody na poszerzanie zasięgu, częstość introdukcji).*
 
-(@) Habitats and where they occur in the PRA area:
+(@) Rośliny żywicielskie i ich rozmieszczenie na obszarze PRA:
 
-*Detail the main habitat and the EUNIS habitat types under threat and comment on their occurrence and distribution within the PRA area. Detail if the habitats are threatened or protected giving the classification type where appropriate (see the Habitats Directive for further information).  Detail if the habitats threatened by the pest are present in the PRA area and the occurrence and distribution of the habitats in the PRA area.  Provide supporting references.*
+*Jeśli zakres roślin żywicielskich jest duży, można je zgrupować (np. drzewa liściaste, rodzina etc.) i skupić się na występujących na obszarze PRA. Jeśli konieczne, różnica w podatności pomiędzy żywicielami powinna być odnotowana. Pomocne może być odniesienie do baz [FAOSTAT](http://www.fao.org/faostat/) lub [EUROSTAT](https://ec.europa.eu/eurostat).*
 
 ```{r echo = F, eval = T}
 Q7 <- read.csv('habitats.csv',
@@ -128,7 +127,7 @@ kable(Q7, col.names = c('Habitat (main)',
 }
 ```
 
-(@) Pathways for entry: 
+(@) Drogi przenikania: 
 
 *List in order of importance which pathways are possible and how important they are for the probability of entry? Note: pathways for entry are pathways from outside the PRA area into the PRA area.  Pathways within the PRA area should be detailed under spread (section 11).*
 

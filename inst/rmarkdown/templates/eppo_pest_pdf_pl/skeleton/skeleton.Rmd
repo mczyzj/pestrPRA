@@ -75,4 +75,4 @@ if (knitr::is_html_output()) {
 <b>Inne rekomendacje: </b>',other_recommendations ,'</div>')
  }
 ```
-<!-- After filling all the document, please delete comments and instructions [usually in italics or color frames] before submitting final version  -->
+<!-- Po wypełnieniu całego dokumentu należy skasować wszystkie komentarze i instrukcje [przeważnie pisane kursywą lub w kolorowych ramkach] przed wysłaniem finalnej wersji.  -->
