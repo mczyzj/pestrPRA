@@ -1,7 +1,7 @@
 ---
-title: "Express Pest Risk Analysis:"
-pest: "pest name"
-taxoauthor: "Linnaeus, 1735"
+title: "Ekspresowa analiza ryzyka:"
+pest: "nazwa szkodnika"
+taxoauthor: "Linneusz, 1735"
 author:
   - name: Autor Pierwszy
     email: author_one@pra.org
@@ -62,17 +62,17 @@ formatingCite <- function(x) {
 
 ```{r echo = F, eval = T, results = 'asis'}
 if (knitr::is_html_output()) {
- PRA_area                  <- c('Rzeczpospolita Polska')
- endangered_area           <- c('patrz pyt. 14')
- main_conclusions          <- c('')
- overall_risk              <- c('Copy your answer from Q 16.')
- phytosanitary_measures    <- c('wskazac czy szkodnik powinien być rkomendowany do podjęcia działań na obszarze PRA. Podsumować odpowiedź z pyt 17.')
- phytosanitary_risk        <- c('Niskie/Średnie/Wysokie')
- uncertainty_of_assessment <- c('Niskia/Średnia/Wysokia')
- other_recommendations     <- c('<ul><li>Poinformować EPPO, IPPC lub EU.</li>Poinformować przemysł, other stakeholders.</li><li>Określić, czy do zredukowania poziomu niepewności niezbędne jest szczegółowe PRA (jeśli tak, wskazać na których częściach PRA należy skupić uwagę).</li><li>Wskazać czy rekomendowane jest potwierdzenie statusu szkodnika poprzez kontrole.</li><li>Określić jakie dodatkowe czynności/badania mogą pomóc w podjęciu decyzji.</li></ul>')
+ obszar_PRA            <- c('Rzeczpospolita Polska')
+ obszar_zagrozenia     <- c('patrz pyt. 14')
+ glowne_wnioski        <- c('')
+ ryzyko_ogolem         <- c('Skopiować z pyt. 16.')
+ srodki_fitosanitarne  <- c('wskazac czy szkodnik powinien być rkomendowany do podjęcia działań na obszarze PRA. Podsumować odpowiedź z pyt 17.')
+ ryzyko_fitosanitarne  <- c('Niskie/Średnie/Wysokie')
+ niepewnosc_oceny      <- c('Niskia/Średnia/Wysokia')
+ inne_rekomendacje     <- c('<ul><li>Poinformować EPPO, IPPC lub EU.</li>Poinformować przemysł, i inne strony zainteresowane.</li><li>Określić, czy do zredukowania poziomu niepewności niezbędne jest szczegółowe PRA (jeśli tak, wskazać na których częściach PRA należy skupić uwagę).</li><li>Wskazać czy rekomendowane jest potwierdzenie statusu szkodnika poprzez kontrole.</li><li>Określić jakie dodatkowe czynności/badania mogą pomóc w podjęciu decyzji.</li></ul>')
  cat('<div class="abstract-box"><div class="title-box">Podsumowanie Analizy Ryzyka Zagrożenia Agrofagiem (Ekspres PRA) dla <i>', rmarkdown::metadata$pest, '</i></div>')
- cat('<p><b>Obszar PRA: </b>',  PRA_area, '</p><p><b>Opis obszaru zagrożenia: </b>', endangered_area, '</p><p><b>Główne wnioski:</b><br>', main_conclusions, '</p><p><b>Overall assessment of risk: </b><span style="background-color: #ff6347;">', overall_risk, '</span></p><p><b>Środki fitosanitarne: </b>', phytosanitary_measures, '</p>', '<div class="rating-box"><div class="top">Ryzyko fitosanitarne dla zagrożonego obszaru</div><div class="center">',phytosanitary_risk,'</div></div><div class="rating-box"><div class="top">Poziom niepewności oceny</div><div class="center">', uncertainty_of_assessment, '</div></div><br>
-<b>Inne rekomendacje: </b>',other_recommendations ,'</div>')
+ cat('<p><b>Obszar PRA: </b>',  obszar_PRA, '</p><p><b>Opis obszaru zagrożenia: </b>', obszar_zagrozenia, '</p><p><b>Główne wnioski:</b><br>', glowne_wnioski, '</p><p><b>Ogólna ocena ryzyka: </b><span style="background-color: #ff6347;">', ryzyko_ogolem, '</span></p><p><b>Środki fitosanitarne: </b>', srodki_fitosanitarne, '</p>', '<div class="rating-box"><div class="top">Ryzyko fitosanitarne dla zagrożonego obszaru</div><div class="center">', ryzyko_fitosanitarne,'</div></div><div class="rating-box"><div class="top">Poziom niepewności oceny</div><div class="center">', niepewnosc_oceny, '</div></div><br>
+<b>Inne rekomendacje: </b>', inne_rekomendacje,'</div>')
  }
 ```
 <!-- Po wypełnieniu całego dokumentu należy skasować wszystkie komentarze i instrukcje [przeważnie pisane kursywą lub w kolorowych ramkach] przed wysłaniem finalnej wersji.  -->

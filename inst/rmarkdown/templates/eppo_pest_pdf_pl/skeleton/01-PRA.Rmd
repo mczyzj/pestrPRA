@@ -1,5 +1,64 @@
-# Wstęp
+---
+title: 'Express Pest Risk Analysis:'
+author:
+- affiliationNum: A
+  email: author_one@pra.org
+  footnote: Autor korespondencyjny
+  name: Autor Pierwszy
+- affiliationNum: B
+  name: Autor Drugi
+- affiliationNum: B
+  name: Autor Trzeci
+- affiliationNum: C
+  name: Autor Czwarty
+date: Sierpień 9, 2018^[Raport został wygenerowany w R [@rcore2018] z użyciem knitr
+  i bookdown [@xie2015; @xie2016]]
+address:
+- address: Departament, Ulica, Miasto, Kod pocztowy
+  affiliationNum: A
+  code: Jakiś Instytut Technologiczny
+- address: Departament, Ulica, Miasto, Kod pocztowy
+  affiliationNum: B
+  code: Inny Universytet
+- address: Departament, Ulica, Miasto, Kod pocztowy
+  affiliationNum: C
+  code: Ministerstwo Wiedzy
+bibliography: pra.bib
+citecolor: TealBlue
+classoption: a4paper
+compact-title: yes
+always_allow_html: yes
+geometry: margin=1in
+graphics: yes
+keywords:
+- Ocena Zagrożenia Agrofagiem
+- EPPO
+link-citations: yes
+linkcolor: TealBlue
+pest: pest name
+site: bookdown::bookdown_site
+taxoauthor: Linnaeus, 1735
+abstract: |
+  `r if(knitr:::is_latex_output()) paste(readLines("abstract.md"), collapse = '\n  ')`
+urlcolor: Cerulean
+---
 
+# Wstęp
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library('kableExtra')
+library('magrittr')
+library('dplyr')
+if(knitr::is_latex_output()) {
+  options(knitr.table.format = "latex")
+} else {
+    options(knitr.table.format = "html")
+}
+formatingCite <- function(x) {
+  paste0('\\citeauthor{', x, '}, ', '\\hyperlink{ref-', x, '}',
+                          '{\\citeyear{', x, '}}')
+}
+```
 Powód wykonania PRA: *(np. przechwycenie, pojaw)*
 
 Obszar PRA: **Rzeczpospolita Polska**
@@ -129,23 +188,30 @@ kable(Q7, col.names = c('Habitat (main)',
 
 (@) Drogi przenikania: 
 
-*List in order of importance which pathways are possible and how important they are for the probability of entry? Note: pathways for entry are pathways from outside the PRA area into the PRA area.  Pathways within the PRA area should be detailed under spread (section 11).*
+*Podać listę w kolejności od najważniejszej z możliwych dróg przenikania agrofaga oraz jak istotne są dla prawdopodobieństwa wejścia. Należy zamieścić wyłącznie drogi przenikania spoza obszaru PRA. Ścieżki na terenie PRA powinny być opisane jako rozprzestrzenienie w punkcie 11).*
+
+<!-- Po wypełnieniu całego dokumentu skasować poniższy kod pomiędzy ``` i ```.  -->
 
 ```{r echo = F, comment = NULL, results='asis'}
 if (knitr::is_html_output()) { 
-cat('<pre class="bg-info"><code>Examples of pathways are:\nPlants for planting\t\t\t\tNatural spread\n\nOther possible pathways\n*packaging material\t\t\t*conveyance and machinery\n*hitchhiking\t\t\t\t*manufactured plant products\n*soil/growing media\t\t\t*ship ballast water\n*plant waste\t\t\t\t*leisure equipment\n*bird seed\t\t\t\t\t*intentional introduction\n*escape from confinement</code></pre>'
+cat('<pre class="bg-info"><code>Przykłady dróg przenikania:\nRośliny do sadzenia\t\t\t\tNaturalne rozprzestrzenienie\n\nInne możliwe drogi przenikania\n*materiał pakowy\t\t\t*maszyny i transport\n*autostopowicze\t\t\t\t*przetworzone produkty roślinne\n*gleba/materiał do sadzenia\t\t\t*woda balastowa\n*odpady roślinne\t\t\t\t*sprzęt wypoczynkowy\n*ziarno dla ptaków\t\t\t\t\t*celowe wprowadzenie\n*ucieczka</code></pre>'
 )
 } else {
     cat('\\begin{tcolorbox}[minipage,colback=blue!15!white,colframe=blue!85!black,arc=8pt,outer arc=5pt]
-\\scriptsize Examples of pathways are:\\newline
-Plants for planting\\tabto{5.2cm}Natural spread\\newline
-\\tabto{3cm}Other possible pathways\\newline
-\\tabto{0.5cm}*\\hspace{0.3cm}packaging material\\tabto{5.5cm}*\\hspace{0.3cm}conveyance and machinery\\newline
-\\tabto{0.5cm}*\\hspace{0.3cm}hitchhiking\\tabto{5.5cm}*\\hspace{0.3cm}manufactured plant products\\newline
-\\tabto{0.5cm}*\\hspace{0.3cm}soil/growing media\\tabto{5.5cm}*\\hspace{0.3cm}ship ballast water\\newline
-\\tabto{0.5cm}*\\hspace{0.3cm}plant waste\\tabto{5.5cm}*\\hspace{0.3cm}leisure equipment\\newline
-\\tabto{0.5cm}*\\hspace{0.3cm}bird seed\\tabto{5.5cm}*\\hspace{0.3cm}intentional introduction\\newline
-\\tabto{0.5cm}*\\hspace{0.3cm}escape from confinement
+\\scriptsize Przykłady dróg przenikania:\\newline
+Rośliny do sadzenia\\tabto{4.5cm}Części roślin i produkty roślinne\\tabto{9.5cm}Drewno\\newline
+rośliny do sadzenia\\tabto{4.5cm}kwiaty cięte i gałęzie\\tabto{9.5cm}kantówki\\newline
+cebulki i bulwy\\tabto{4.5cm}owoce i warzywa\\tabto{9.5cm}drewno nieobrobione\\newline
+nasiona ziarno\\tabto{4.5cm}pyłek\\tabto{9.5cm}kora\\newline
+\\tabto{4.5cm}przechowywane produkty roślinne\\tabto{9.5cm}materiał pakowy\\newline
+\\tabto{3cm}Inne możliwe drogi przenikania\\newline
+\\tabto{0.5cm}*\\hspace{0.3cm}materiał pakowy\\tabto{5.5cm}*\\hspace{0.3cm}maszyny i transport\\newline
+\\tabto{0.5cm}*\\hspace{0.3cm}autostopowicze\\tabto{5.5cm}*\\hspace{0.3cm}przetworzone produkty roślinne\\newline
+\\tabto{0.5cm}*\\hspace{0.3cm}gleba/materiał do sadzenia\\tabto{5.5cm}*\\hspace{0.3cm}woda balastowa\\newline
+\\tabto{0.5cm}*\\hspace{0.3cm}odpady roślinne\\tabto{5.5cm}*\\hspace{0.3cm}sprzęt wypoczynkowy\\newline
+\\tabto{0.5cm}*\\hspace{0.3cm}ziarno dla ptaków\\tabto{5.5cm}*\\hspace{0.3cm}celowe wprowadzenie\\newline
+\\tabto{0.5cm}*\\hspace{0.3cm}ucieczka\\newline
+Naturalne rozprzestrzenienie
 \\end{tcolorbox}')
 }
 ```
@@ -153,17 +219,19 @@ Plants for planting\\tabto{5.2cm}Natural spread\\newline
 ```{r echo = F, eval = T}
 Q8A <- read.csv('pathways.csv',
                header = T,
-               stringsAsFactors = F)
+               stringsAsFactors = F, allowEscapes = T)
 
 if (knitr::is_html_output()) {
-  kable(Q8A, col.names = c('Possible pathway', 'Pathway:')) %>%
+  kable(Q8A, col.names = c('Możliwa droga przenikania',
+                           'Droga przenikania:')) %>%
     kable_styling(full_width = T,
                   bootstrap_options = c('striped', 'condensed', 'bordered')) %>%
     row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
     column_spec(1, width = '22em')
 } else {
   kable(Q8A, 'latex', booktabs = T,
-        col.names = c('Possible pathway', 'Pathway:')) %>%
+        col.names = c('Możliwa droga przenikania',
+                      'Droga przenikania:')) %>%
     kable_styling(full_width = T,
                   latex_options = c('striped', 'hold_position', 'repeat_header')) %>%
     row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
@@ -173,29 +241,31 @@ if (knitr::is_html_output()) {
 }
 ```
 
+<!-- Po wypełnieniu całego dokumentu skasować poniższy kod pomiędzy ``` i ```.  -->
+
 ```{r echo = F, comment = NULL, results = 'asis'}
 if (knitr::is_html_output()) {
-  cat('<pre class="bg-warning"><code>Repeat table for each pathway considered.</code></pre>')
+  cat('<pre class="bg-warning"><code>Powtórzyć tabelę dla każdej z rozważanych dróg przenikania.</code></pre>')
 } else {
   cat('\\begin{tcolorbox}[minipage,colback=yellow!50!white,colframe=yellow!50!black,arc=8pt,outer arc=5pt]
 \\centering
-\\scriptsize Repeat table for each pathway considered.
+\\scriptsize Powtórzyć tabelę dla każdej z rozważanych dróg przenikania.
 \\end{tcolorbox}')
 }
 ```
 
-(@) Likelihood of establishment in the natural environment in the PRA area:
+(@) Prawdopodobieństwo zasiedlenia w warunkach zewnętrznych (środowisko naturalne i zarządzane oraz uprawy) na obszarze PRA:
 
-*Consider in particular the presence of host plants/habitats and climatic suitability and describe the area where establishment is most likely (area of potential establishment). Reference to maps such as Köppen-Geiger climate zones, day degrees and hardiness zones or the use of species distribution models may help assess the likelihood of establishment (see e.g. [Rating Guidance for climatic suitability](http://capra.eppo.org/files/links/Rating_Guidance_for_climatic_suitability.pdf)).*
+*W szczególności rozważyć obecność roślin/siedlisk żywicielskich i warunki klimatyczne oraz określić, gdzie zadomowienie jest najbardziej prawdopodobne (obszar potencjalnego zadomowienia). Odniesienia do map takich jak strefy klimatyczne Koppena-Geigera, stopniodni oraz mrozoodporności lub użycie modeli rozmieszczenia gatunków może pomóc w ocenie prawdopodobieństwa zadomowienia, np. [Rating Guidance for climatic suitability](http://capra.eppo.org/files/links/Rating_Guidance_for_climatic_suitability.pdf)).*
 
-*Consider for example the reproductive mode of the organism and the ability of the organism to adapt to the PRA area (and habitats within). Consider competition from existing species in the PRA area, and/or natural enemies already present?*
+*Rozważyć również cykl reprodukcyjny organizmu i możliwość zaadoptowania na obszarze PRA (i jego siedliskach). Rozważyć konkurencję obecnych na obszarze PRA gatunków i naturalnych wrogów*
 
 ```{r echo = F, eval = T}
-Q9 <- data.frame(Rating = c('Rating of the likelihood of establishment in the natural environment',
-                            'Rating of uncertainty'),
-                 Low = c('X','.'),      #put X in correct level between ''
-                 Moderate = c('.','X'), #first place is for likelihood, second
-                 High = c('.','.'), stringsAsFactors = F)      #for uncetainity
+Q9 <- data.frame(Ocena = c('Ocena prawdopodobieństwa zadomowienia w warunkach zewnętrznych',
+                            'Ocena niepewności'),
+                 Niskie = c('X','.'),      #wstawić X w odpowiedni poziom pomiędzy ''
+                 Średnie = c('.','X'),     #pierwsze miejsce dla prawdopodobieństwa, drugie
+                 Wysokie = c('.','.'), stringsAsFactors = F)      #dla niepewności
 if (knitr::is_html_output()) {
  kable(Q9, align = c('l', 'c', 'c', 'c')) %>%
   kable_styling(full_width = T, bootstrap_options = c('condensed', 'bordered')) %>%
@@ -214,16 +284,16 @@ if (knitr::is_html_output()) {
 }
 ```
 
-(@) Likelihood of establishment in managed environment in the PRA area:
+(@) Prawdopodobieństwo zasiedlenia w uprawach pod osłonami na obszarze PRA:
 
-*Factors to consider for pest plants are for instance the regular mowing of road sides, cleaning of water courses, etc. Existing pest management practice should also be considered.*
+*Rozważyć obecność roślin żywicielskich w uprawach chronionych i opisać potencjalny obszar zasiedlenia.*
 
 ```{r echo = F, eval = T}
-Q10 <- data.frame(Rating = c('Rating of the likelihood of establishment in the managed environment',
-                            'Rating of uncertainty'),
-                 Low = c('X','.'),      #put X in correct level between '' 
-                 Moderate = c('.','X'), #first place is for likelihood, second
-                 High = c('.','.'), stringsAsFactors = F)     #for uncetainity (see example Q9)
+Q10 <- data.frame(Ocena = c('Ocena prawdopodobieństwa zasiedlenia w uprawach chronionych',
+                            'Ocena niepewności'),
+                 Niskie = c('X','.'),      #wstawić X w odpowiedni poziom pomiędzy '' 
+                 Średnie = c('.','X'),     #pierwsze miejsce dla prawdopodobieństwa, drugie
+                 Wysokie = c('.','.'), stringsAsFactors = F)     #dla niepewności (patrz przykład  pyt.9)
 if (knitr::is_html_output()) { 
 kable(Q10, align = c('l', 'c', 'c', 'c')) %>%
   kable_styling(full_width = T, bootstrap_options = c('bordered')) %>%
@@ -242,22 +312,22 @@ kable(Q10, align = c('l', 'c', 'c', 'c')) %>%
 }
 ```
 
-(@) Spread in the PRA area:
+(@) Rozprzestrzenienie na obszarze PRA:
 
-*Natural spread*
+*Naturalne rozprzestrzenienie*
 
-*Human assisted spread*
+*Rozprzestrzenienie z udziałem człowieka*
 
-*Briefly describe each mode of spread and indicate the rate or distance of spread.*
+*Krótko opisać każdy sposób rozprzestrzeniania i ocenić odległość rozprzestrzenienia (np. zdolność lotu owadów, dyspersja z wiatrem, przeniesienie wraz z roślinami lub produktami roślinnymi, przeniesienie wraz z transportowanym towarem).*
 
-*If possible consider how long it would take for the pest to spread widely within the area of potential establishment if no phytosanitary measures are taken. If no specific data are available, compare with similar organisms.*
+*Jeśli możliwe rozważyć jak długo zajmie szkodnikowi szerokie rozprzestrzenienie na obszarze potencjalnego zasiedlenia, jeśli nie zostaną podjęte środki fitosanitarne. W przypadku braku danych, porównać z podobnymi organizmami.*
 
 ```{r echo = F, eval = T}
-Q11 <- data.frame(Rating = c('Rating of the magnitude of spread in the PRA area',
-                            'Rating of uncertainty'),
-                 Low = c('.','.'),      #put X in correct level between '' 
-                 Moderate = c('.','.'), #first place is for magnitude, second
-                 High = c('.','.'), stringsAsFactors = F)     #for uncetainity (see example Q9)
+Q11 <- data.frame(Ocena = c('Ocena wielkości rozprzestrzenienia na obszarze PRA',
+                            'Ocena niepewności'),
+                 Niskie = c('X','.'),      #wstawić X w odpowiedni poziom pomiędzy '' 
+                 Średnie = c('.','X'),     #pierwsze miejsce dla prawdopodobieństwa, drugie
+                 Wysokie = c('.','.'), stringsAsFactors = F)     #dla niepewności (patrz przykład  pyt.9)
 if (knitr::is_html_output()) {
 kable(Q11, align = c('l', 'c', 'c', 'c')) %>%
   kable_styling(full_width = T, bootstrap_options = c('condensed', 'bordered')) %>%
@@ -276,20 +346,20 @@ kable(Q11, align = c('l', 'c', 'c', 'c')) %>%
 }
 ```
 
-(@) Impact in the current area of distribution:
+(@) Wpływ na obcecnym obszarze zasięgu:
 
-  I) Impacts on biodiversity
+  I) Wpływ na bioróżnorodność
 
-*Describe the environmental impacts with respect to biodiversity in the current area of distribution (only negative impacts are considered).*
+*Opisać wpływy na środowisko ze wskazaniem na bioróżnorodność na obecnym obszarze zasięgu (rozważyć wyłącznie negatywny wpływ).*
 
-*Briefly describe the existing control measures applied against the pest*
+*Zwięźle opisać używane środki kontroli stosowane do zwalczania agrofaga.*
 
 ```{r echo = F, eval = T}
-Q12_01 <- data.frame(Rating = c('Rating of magnitude of impact on biodiversity in the current area of distirbution',
-                               'Rating of uncertainty'),
-                 Low = c('.','.'),      #put X in correct level between '' 
-                 Moderate = c('.','.'), #first place is for magnitude, second
-                 High = c('.','.'), stringsAsFactors = F)     #for uncetainity (see example Q9)
+Q12_01 <- data.frame(Ocena = c('Zwięźle opisać używane środki kontroli stosowane do zwalczania agrofaga',
+                               'Ocena niepewności'),
+                 Niskie = c('X','.'),      #wstawić X w odpowiedni poziom pomiędzy '' 
+                 Średnie = c('.','X'),     #pierwsze miejsce dla prawdopodobieństwa, drugie
+                 Wysokie = c('.','.'), stringsAsFactors = F)     #dla niepewności (patrz przykład  pyt.9)
 if (knitr::is_html_output()) {
 kable(Q12_01, align = c('l', 'c', 'c', 'c')) %>%
   kable_styling(full_width = T, bootstrap_options = c('condensed', 'bordered')) %>%
@@ -308,13 +378,15 @@ kable(Q12_01, align = c('l', 'c', 'c', 'c')) %>%
 }
 ```
 
-  II) Impact on ecosystem services
+  II) Wpływ na usługi ekosystemowe
   
-*Consider the negative impact the pest may have on categories of ecosystem services (examples of ecosystem service under each main category are detailed in the highlighted box). The categories of ecosystem services are based on the [Millennium Ecosystem Assessment (2005)](http://www.unep.org/maweb/documents/document.356.aspx.pdf).*
+<!-- Po wypełnieniu całego dokumentu skasować poniższy kod pomiędzy ``` i ```.  -->
+*Rozważyć negatywne skutki, jakie agrofag może wywrzeć na kategorie usług ekosystemowych (przykłady takich usług pod każdą z głównych kategorii znajdują się poniżej) Kategorie usług ekosystemowych na podstawie [Millennium Ecosystem Assessment (2005)](http://www.unep.org/maweb/documents/document.356.aspx.pdf).*
 
 ```{r echo = F, comment = NULL, results='asis'}
 if (knitr::is_html_output()) { 
-cat('<pre class="bg-info"><code>Examples of ecosystem services to consider under each category include:\n\n*Provisioning services\t\t\t\t\t\t\t\t*Supporting services
+cat('<pre class="bg-info"><code>Przykłady usług ekosystemowych do rozważenia w każdej kategorii zawierają:
+\n\n*Provisioning services\t\t\t\t\t\t\t\t*Supporting services
 \tFresh water\t\t\t\t\t\t\t\t\t\t\tNutrient cycling
 \tGenetic resources\t\t\t\t\t\t\t\t\tPrimary production
 \tFood production (crop and livestock etc.)\t\t\tHabitat stability
@@ -331,22 +403,23 @@ cat('<pre class="bg-info"><code>Examples of ecosystem services to consider under
 \tPest and disease regulation</code></pre>')
 } else {
   cat('\\begin{tcolorbox}[minipage,colback=blue!15!white,colframe=blue!85!black,arc=8pt,outer arc=5pt]
-\\scriptsize Examples of ecosystem services to consider under each category include:\\newline
-Provisioning services\\tabto{7.1cm}Supporting services\\newline
-\\tabto{0.5cm}*\\hspace{0.3cm}Fresh water\\tabto{7.6cm}*\\hspace{0.3cm}Nutrient cycling\\newline
-\\tabto{0.5cm}*\\hspace{0.3cm}Genetic resources\\tabto{7.6cm}*\\hspace{0.3cm}Primary production\\newline
-\\tabto{0.5cm}*\\hspace{0.3cm}Food production (crop and livestock etc.)\\tabto{7.6cm}*\\hspace{0.3cm}Habitat stability\\newline
-\\tabto{0.5cm}*\\hspace{0.3cm}Commodity production (fibre, timber etc.)\\newline
-Regulating services\\tabto{7.1cm}Cultural services\\newline
-\\tabto{0.5cm}*\\hspace{0.3cm}Soil formation\\tabto{7.6cm}*\\hspace{0.3cm}Aesthetic experiences\\newline
-\\tabto{0.5cm}*\\hspace{0.3cm}Pollination\\tabto{7.6cm}*\\hspace{0.3cm}Cultural heritage\\newline
-\\tabto{0.5cm}*\\hspace{0.3cm}Natural hazard regulation (fire, erosion, flooding)\\tabto{7.6cm}*\\hspace{0.3cm}Tourism\\newline
-\\tabto{0.5cm}*\\hspace{0.3cm}Water regulation\\tabto{7.6cm}*\\hspace{0.3cm}Recreation (fishing, nature enjoyment etc.)\\newline
-\\tabto{0.5cm}*\\hspace{0.3cm}Biodiversity\\tabto{7.6cm}*\\hspace{0.3cm}Spiritual wellbeing\\newline
-\\tabto{0.5cm}*\\hspace{0.3cm}Decomposition\\newline
-\\tabto{0.5cm}*\\hspace{0.3cm}Photosynthesis and primary production\\newline
-\\tabto{0.5cm}*\\hspace{0.3cm}Air quality regulation\\newline
-\\tabto{0.5cm}*\\hspace{0.3cm}Pest and disease regulation
+\\scriptsize Przykłady usług ekosystemowych do rozważenia w każdej kategorii zawierają:
+\\newline
+Usługi zabezpieczające\\tabto{7.1cm}Usługi wspomagające\\newline
+\\tabto{0.5cm}*\\hspace{0.3cm}Czysta woda\\tabto{7.6cm}*\\hspace{0.3cm}Obieg materii\\newline
+\\tabto{0.5cm}*\\hspace{0.3cm}Zasoby genetyczne\\tabto{7.6cm}*\\hspace{0.3cm}Produkcja pierwotna\\newline
+\\tabto{0.5cm}*\\hspace{0.3cm}Produkcja żywności\\tabto{7.6cm}*\\hspace{0.3cm}Stabilność siedlisk\\newline
+\\tabto{0.5cm}*\\hspace{0.3cm}Produkcja towarów (włókna, drewno etc.)\\newline
+Usługi regulujące\\tabto{7.1cm}Usługi kulturowe\\newline
+\\tabto{0.5cm}*\\hspace{0.3cm}Tworzenie gleby\\tabto{7.6cm}*\\hspace{0.3cm}Doznania estetyczne\\newline
+\\tabto{0.5cm}*\\hspace{0.3cm}Zapylanie\\tabto{7.6cm}*\\hspace{0.3cm}Dziedzictwo kulturowe\\newline
+\\tabto{0.5cm}*\\hspace{0.3cm}Regulacja naturalnych zagrożeń (np. pożary)\\tabto{7.6cm}*\\hspace{0.3cm}Turystyka\\newline
+\\tabto{0.5cm}*\\hspace{0.3cm}Regulacje wodne\\tabto{7.6cm}*\\hspace{0.3cm}Rekreacja\\newline
+\\tabto{0.5cm}*\\hspace{0.3cm}Bioróżnorodność\\tabto{7.6cm}*\\hspace{0.3cm}Dobrostan duchowy\\newline
+\\tabto{0.5cm}*\\hspace{0.3cm}Dekompozycja\\newline
+\\tabto{0.5cm}*\\hspace{0.3cm}Fotosynteza i produkcja pierwotna\\newline
+\\tabto{0.5cm}*\\hspace{0.3cm}Czystość powierza\\newline
+\\tabto{0.5cm}*\\hspace{0.3cm}Regulacja chorób i szkodników
 \\end{tcolorbox}')
 }
 ```
@@ -357,9 +430,9 @@ Q12_02 <- read.csv('eco_services.csv',
                stringsAsFactors = F)
 
 if (knitr::is_html_output()) {
-kable(Q12_02, col.names = c('Ecosystem service',
-                            'Does the pest impact on this Ecosystem service?',
-                            'Short description of impact',
+kable(Q12_02, col.names = c('Usługi ekosystemowe',
+                            'Czy szkodnik wpływa na tą usługę ekosystemową?',
+                            'Krótki opis wpływu',
                             'Reference')) %>%
   kable_styling(full_width = T, bootstrap_options = c('striped', 'condensed', 'bordered')) %>%
   row_spec(row = 0, bold = T, background = '#f5f6fa') %>%
@@ -379,9 +452,9 @@ kable(Q12_02, col.names = c('Ecosystem service',
     select(-'Reference')
   Q12_02L$References[Q12_02L$References == '\\citeauthor{}, \\hyperlink{ref-}{\\citeyear{}}'] <- NA
   kable(Q12_02L, booktabs = T, longtable = T,
-        col.names = c('Ecosystem service',
-                      'Does the pest impact on this Ecosystem service?',
-                      'Short description of impact',
+        col.names = c('Usługi ekosystemowe',
+                      'Czy szkodnik wpływa na tą usługę ekosystemową?',
+                      'Krótki opis wpływu',
                       'References'), escape = F) %>%
   kable_styling(full_width = T, latex_options = c('striped', 'hold_position', 'repeat_header')) %>%
   row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
@@ -391,11 +464,11 @@ kable(Q12_02, col.names = c('Ecosystem service',
 ```
 
 ```{r echo = F, eval = T}
-Q12_02A <- data.frame(Rating = c('Rating of magnitude of impact on ecosystem services in the current area of distirbution',
-                                'Rating of uncertainty'),
-                 Low = c('.','.'),      #put X in correct level between '' 
-                 Moderate = c('.','.'), #first place is for magnitude, second
-                 High = c('.','.'), stringsAsFactors = F)     #for uncetainity (see example Q9)
+Q12_02A <- data.frame(Ocena = c('Ocena wielkości wpływu na usługi ekosystemowe na obecnym obszarze zasięgu',
+                                'Ocena niepewności'),
+                 Niski = c('X','.'),      #wstawić X w odpowiedni poziom pomiędzy '' 
+                 Średni = c('.','X'),     #pierwsze miejsce dla prawdopodobieństwa, drugie
+                 Wysoki = c('.','.'), stringsAsFactors = F)     #dla niepewności (patrz przykład  pyt.9)
 if (knitr::is_html_output()) {
  kable(Q12_02A, align = c('l', 'c', 'c', 'c')) %>%
   kable_styling(full_width = T, bootstrap_options = c('condensed', 'bordered')) %>%
@@ -414,16 +487,16 @@ if (knitr::is_html_output()) {
 }
 ```
 
-  III) Socio-economic impact**
+  III) Wpływ socjo-ekonomiczny
 
-*(e.g. evaluate socio-economic impacts relating to control/management costs, costs relating to habitat degradation and agriculture, forestry and fisheries (i.e. reduction in leisure activities, real estate prices, and yields etc.)*
+*(np. ocena wpływu socjoekonomicznego na koszty kontroli/zarządzania, koszty związane z degradacją i rolnictwem/leśnictwem/etc. (np. zmniejszenie aktywności wypoczynkowych, zmiana cen nieruchomości i plonów etc.)*
 
 ```{r echo = F, eval = T}
-Q12_03 <- data.frame(Rating = c('Rating of magnitude of socio-economic impact in the current area of distirbution',
-                               'Rating of uncertainty'),
-                 Low = c('.','.'),      #put X in correct level between '' 
-                 Moderate = c('.','.'), #first place is for magnitude, second
-                 High = c('.','.'), stringsAsFactors = F)     #for uncetainity (see example Q9)
+Q12_03 <- data.frame(Rating = c('Ocena wielkości wpływu socjoekonomicznego na obecnym obszarze zasięgu',
+                               'Ocena niepewności'),
+                 Niski = c('X','.'),      #wstawić X w odpowiedni poziom pomiędzy '' 
+                 Średni = c('.','X'),     #pierwsze miejsce dla prawdopodobieństwa, drugie
+                 Wysoki = c('.','.'), stringsAsFactors = F)     #dla niepewności (patrz przykład  pyt.9)
 if (knitr::is_html_output()) {
  kable(Q12_03, align = c('l', 'c', 'c', 'c')) %>%
   kable_styling(full_width = T, bootstrap_options = c('condensed', 'bordered')) %>%
@@ -442,24 +515,24 @@ if (knitr::is_html_output()) {
 }
 ```
 
-(@) Potential impact in the PRA area:
+(@) Potencjalny wpływ na obszarze PRA:
 
-*Take into considerations answers to questions 8, 9 & 10.  Evaluate if potential negative impacts in the PRA area will be similar to that in areas already colonised in the current area of distribution.  Consider natural enemies, cultural practices, etc.in the area of potential establishment.*
+*Wziąć pod uwagę odpowiedzi z pytań 8, 9, 10. Ocenić czy potencjalny negatywny wpływ na obszarze PRA będzie podobny do tego, jaki występuje na aktualnie zajmowanym przez agrofaga obszarze. Rozważyć naturalnych wrogów, czynniki kulturowe, itp. na obszarze potencjalnego zasiedlenia.*
 
-Will impacts be largely the same as in the current area of distribution? *Yes/No*
+Czy wpływ będzie równie duży, co na obecnym obszarze występowania? *Tak/Nie*
 
-*If the answer to the above is yes describe the reasoning for this under the following subheadings.  If no, describe why the impacts will be different and provide a new rating score.*
+*Jeżeli odpowiedź brzmi Tak należy opisać przesłanki w odpowiednich punktach. Jeśli nie, opisać dlaczego wpływ będzie inny i zaznaczyć nową ocenę.*
 
-  I) Potential impacts on biodiversity in the PRA area
+  I) Potencjalny wpływ na bioróżnorodność na obszarze PRA
 
-**If No,**
+**Jeżeli Nie,**
 
 ```{r echo = F, eval = T}
-Q13_01 <- data.frame(Rating = c('Rating of magnitude of impact on biodiversity in the area of potential establishment',
-                               'Rating of uncertainty'),
-                 Low = c('.','.'),      #put X in correct level between '' 
-                 Moderate = c('.','.'), #first place is for magnitude, second
-                 High = c('.','.'), stringsAsFactors = F)     #for uncetainity (see example Q9)
+Q13_01 <- data.frame(Ocena = c('Ocena wielkości wpływu na bioróżnorodność na potencjalnym obszarze zasiedlenia',
+                               'Ocena niepewności'),
+                 Niski = c('X','.'),      #wstawić X w odpowiedni poziom pomiędzy '' 
+                 Średni = c('.','X'),     #pierwsze miejsce dla prawdopodobieństwa, drugie
+                 Wysoki = c('.','.'), stringsAsFactors = F)     #dla niepewności (patrz przykład  pyt.9)
 if (knitr::is_html_output()) {
 kable(Q13_01, align = c('l', 'c', 'c', 'c')) %>%
   kable_styling(full_width = T, bootstrap_options = c('condensed', 'bordered')) %>%
@@ -478,16 +551,16 @@ kable(Q13_01, align = c('l', 'c', 'c', 'c')) %>%
 }
 ```
 
- II) Potential impact on ecosystem services in the PRA area
+ II) Potencjalny wpływ na usługi ekosystemowe na obszarze PRA
 
-**If No,**
+**Jeżeli Nie,**
 
 ```{r echo = F, eval = T}
-Q13_02 <- data.frame(Rating = c('Rating of magnitude of impact on ecosystem services in the area of potential establishment',
-                               'Rating of uncertainty'),
-                 Low = c('.','.'),      #put X in correct level between '' 
-                 Moderate = c('.','.'), #first place is for magnitude, second
-                 High = c('.','.'), stringsAsFactors = F)     #for uncetainity (see example Q9)
+Q13_02 <- data.frame(Ocena = c('Ocena wielkości wpływu na usługi ekosystemowe na potencjalnym obszarze zasiedlenia',
+                               'Ocena niepewności'),
+                 Niski = c('X','.'),      #wstawić X w odpowiedni poziom pomiędzy '' 
+                 Średni = c('.','X'),     #pierwsze miejsce dla prawdopodobieństwa, drugie
+                 Wysoki = c('.','.'), stringsAsFactors = F)     #dla niepewności (patrz przykład  pyt.9)
 if (knitr::is_html_output()) {
  kable(Q13_02, align = c('l', 'c', 'c', 'c')) %>%
   kable_styling(full_width = T, bootstrap_options = c('condensed', 'bordered')) %>%
@@ -506,16 +579,16 @@ if (knitr::is_html_output()) {
 }
 ```
 
- III) Potential socio-economic impact in the PRA area
+ III) Potencjalny wpływ socjoekonomiczny na obszarze PRA
 
-**If No,**
+**Jeżeli Nie,**
 
 ```{r echo = F, eval = T}
-Q13_03 <- data.frame(Rating = c('Rating of magnitude of socio-economic impact in the area of potential establishment',
-                               'Rating of uncertainty'),
-                 Low = c('.','.'),      #put X in correct level between '' 
-                 Moderate = c('.','.'), #first place is for magnitude, second
-                 High = c('.','.'), stringsAsFactors = F)     #for uncetainity (see example Q9)
+Q13_03 <- data.frame(Ocena = c('Ocena wielkości wpływu socjoekonomiczny na potencjalnym obszarze zasiedlenia',
+                               'Ocena niepewności'),
+                 Niski = c('X','.'),      #wstawić X w odpowiedni poziom pomiędzy '' 
+                 Średni = c('.','X'),     #pierwsze miejsce dla prawdopodobieństwa, drugie
+                 Wysoki = c('.','.'), stringsAsFactors = F)     #dla niepewności (patrz przykład  pyt.9)
 if (knitr::is_html_output()) {
  kable(Q13_03, align = c('l', 'c', 'c', 'c')) %>%
   kable_styling(full_width = T, bootstrap_options = c('condensed', 'bordered')) %>%
@@ -534,46 +607,29 @@ if (knitr::is_html_output()) {
 }
 ```
 
-(@) Identification of the endangered area:
+(@) Identyfikacja zagrożonego obszaru:
 
-*Define the endangered area (see definition in ISPM 5): describe in which part of the area of potential establishment significant impact is expected.*
+*Zdefiniować zagrożony obszar (definicja z ISPM 5). Opisać, w której części obszaru potencjalnego zasiedlenia spodziewać się można istotnego wpływu.*
 
-(@) Climate change:
+(@) Zmiana kliamtu:
 
 *Consider the influence of projected climate change scenarios on the pest.*
 
-  I) Define which climate projection you are using from 2050 to 2100**
+  I) Który scenariusz zmiany klimatu jest uwzględniony na lata 2050 do 2100\*
 
-Climate projection:
+Scenariusz zmiany klimatu:  
 
-*following the [IPCC projections](http://www.ipcc.ch/)*
+*\*na podstawie scenariuszy [IPCC projections](http://www.ipcc.ch/)*
 
-*Reference: IPCC, 2014: Summary for policymakers. In: Climate Change 2014: Impacts, Adaptation, and Vulnerability. Part A: Global and Sectoral Aspects. Contribution of Working Group II to the Fifth Assessment Report of the Intergovernmental Panel on Climate Change [Field, C.B., V.R. Barros, D.J. Dokken, et al.,(eds.)]. Cambridge University Press, Cambridge, United Kingdom and New York, NY, USA, pp. 1-32. [WG2AR5 SPM FINAL](https://ipcc-wg2.gov/AR5/images/uploads/WG2AR5_SPM_FINAL.pdf)*
+*Źródło: IPCC, 2014: Summary for policymakers. In: Climate Change 2014: Impacts, Adaptation, and Vulnerability. Part A: Global and Sectoral Aspects. Contribution of Working Group II to the Fifth Assessment Report of the Intergovernmental Panel on Climate Change [Field, C.B., V.R. Barros, D.J. Dokken, et al.,(eds.)]. Cambridge University Press, Cambridge, United Kingdom and New York, NY, USA, pp. 1-32. [WG2AR5 SPM FINAL](https://ipcc-wg2.gov/AR5/images/uploads/WG2AR5_SPM_FINAL.pdf)*
 
-  II) Which component of climate change do you think is the most relevant for this organism?
+  II) Rozważyć wpływ projektowanej zmiany klimatu na agrofaga.
 
-Delete (*yes/no*) as appropriate
-
-```{r envirTable, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
-environTable <- " 
-
-|  | | | | | | |
-|--|:--:|--|:--:|--|:--:|
-| Temperature                      | *Yes/No* | &nbsp;&nbsp;Precipitation                     | *Yes/No* | &nbsp;&nbsp;CO~2~ levels                          | *Yes/No* |
-| Sea level rise&nbsp;&nbsp;&nbsp; | *Yes/No* | &nbsp;&nbsp;Salinity                          | *Yes/No* | &nbsp;&nbsp;Nitrogen deposition&nbsp;&nbsp;&nbsp; | *Yes/No* |
-| Acidification                    | *Yes/No* | &nbsp;&nbsp;Land use change&nbsp;&nbsp;&nbsp; | *Yes/No* | &nbsp;&nbsp;Other                                 | *Yes/No* |
-
-"
-cat(environTable) 
-```
-
-  III) Consider the influence of projected climate change scenarios on the pest.
-
-*Specifically consider the influence of climate change on entry, establishment, spread and impact of the pest in the PRA area.*
+*W szczególności rozważyć wpływ zmiany klimatu na wejście, zasiedlenie, rozprzestrzenienie oraz wpływ na obszarze PRA.*
 
 ```{r echo = F, comment = NULL, results='asis'}
 if (knitr::is_html_output()) {
-cat('<pre class="bg-info"><code>In particular, consider the following aspects:\n
+cat('<pre class="bg-info"><code>W szczególności rozważyć poniższe aspekty:\n
 *Pathways (see point 8)\t\t\t\t\t\t\t*Spread
 *Establishment\t\t\t\t\t\t\t\t\t\tDensity dependent dispersal
 \tDay degree requirements\t\t\t\t\t\t\tExtreme weather events
@@ -583,65 +639,67 @@ cat('<pre class="bg-info"><code>In particular, consider the following aspects:\n
 )
 } else {
   cat('\\begin{tcolorbox}[minipage,colback=blue!15!white,colframe=blue!85!black,arc=8pt,outer arc=5pt]
-\\scriptsize In particular, consider the following aspects:\\newline
-Pathways (see point 8)\\tabto{6.2cm} Spread\\newline
-Establishment\\tabto{6.8cm} *\\hspace{0.3cm}Density dependent dispersal\\newline
-*\\hspace{0.3cm}Day degree requirements\\tabto{6.8cm} *\\hspace{0.3cm}Extreme weather events\\newline
-*\\hspace{0.3cm}Climate limitations\\tabto{6.2cm}Impact\\newline
-*\\hspace{0.3cm}Changes in reproduction/growth\\tabto{6.8cm} *\\hspace{0.3cm}Increased fitness\\newline
-*\\hspace{0.3cm}Inter-specific competition\\tabto{6.8cm} *\\hspace{0.3cm}Per capita effects
+\\scriptsize W szczególności rozważyć poniższe aspekty:\\newline
+Drogi przenikania (patrz pyt. 8)\\tabto{6.2cm} Rozprzestrzenienie\\newline
+Zasiedlenie\\tabto{6.8cm} *\\hspace{0.3cm}Rozprzestrzenienie zależne od zagęszczenia\\newline
+*\\hspace{0.3cm}Wymagania w stosunku do stopniodni\\tabto{6.8cm} *\\hspace{0.3cm}Ekstremalne warunki pogodowe\\newline
+*\\hspace{0.3cm}Ograniczenia klimatyczne\\tabto{6.2cm}Wpływ\\newline
+*\\hspace{0.3cm}Zmiany we wzroście/reprodukcji\\tabto{6.8cm} *\\hspace{0.3cm}Wzrost dostosowania\\newline
+*\\hspace{0.3cm}Konkurencja międzygatunkowa\\tabto{6.8cm} *\\hspace{0.3cm}Efekty per capita
 \\end{tcolorbox}')
 }
 ```
 
-(@) Overall assessment of risk:
+(@) Ogólna ocena ryzyka:
 
-*Summarize the likelihood of entry, establishment, spread and possible impact without phytosanitary measure. An overall rating should be given in the summary part which is placed at the beginning of the Express PRA. Then consider whether phytosanitary measures are necessary. If the assessment shows that phytosanitary measures are not required for a country but there are indications that other EPPO countries are at higher risk, mention it.*
+*Podsumować prawdopodobieństwo wejścia, zasiedlenia, rozprzestrzenienia oraz prawdopodobny wpływ bez podjęcia środków fitosanitarnych. Ogólna ocena powinna być podana w części podsumowania na początku PRA. Następnie rozważyć niezbędne środki fitosanitarne.*
 
-# Pest risk menagment.
+*Jeżeli ocena wskazuje, że środki fitosanitarne nie są konieczne dla kraju, ale istnieją przesłanki, że inne kraje EPPO są narażone na wysokie ryzyko, należy to nadmienić.*
 
-(@) Phytosanitary measures 
+# Zarządzanie ryzykiem zagrożenia agrofagiem.
 
-  I) Describe potential measures for relevant pathways and their expected effectiveness on preventing introduction (entry & establishment) and / or spread.
+(@) Środki fitosanitarne
 
-*If possible, specify prospects of eradication or containment in case of an outbreak. Indicate effectiveness and feasibility of the measures*
+  I) Opisać potencjalne środki dla odpowiednich dróg przenikania i ich oczekiwaną efektywność na zapobieganie wprowadzenia (wejście i zasiedlenie) oraz/lub na rozprzestrzenienie.
+
+*Jeżeli możliwe, wyszczegółowić perspektywę eradykacji lub powstrzymania w razie pojawu. Wskazać efektywność i wykonalność środków.*
 
 ```{r echo = F, comment = NULL, results='asis'}
 if (knitr::is_html_output()) {
-  cat('<pre class="bg-info"><code>As described in PM 5/3 possible options for phytosanitary measures include 
-Options at the place of production
-*\tDetection of the pest at the place of production by inspection or testing
-*\tPrevention of infestation of the commodity at the place of production (treatment, resistant cultivars,
-\tgrowing the crop in specified conditions, harvest at certain times of the year or growth stages,
-\tproduction in a certification scheme)
-*\tEstablishment and maintenance of pest freedom of a crop, place of production or area
-Options after harvest, at pre-clearance or during transport
-*\tDetection of the pest in consignments by inspection or testing
-*\tRemoval of the pest from the consignment by treatment or other phytosanitary procedures
-\t(remove certain parts of the plant or plant product, handling and packing methods,
-\tspecific conditions or treatments during transport)
-Options that can be implemented after entry of consignments
-*\tDetection during post-entry quarantine
-*\tConsider whether consignments that may be infested be accepted without risk for certain end uses,
-\tlimited distribution in the PRA area, or limited periods of entry, and can such limitations
-\tbe applied in practice 
-Prohibition
-Surveillance, eradication, containment</code></pre>')
+  cat('<pre class="bg-info"><code>Na podstawie PM 5/3 potencjalne opcje w przypadku środków fitosanitarnych zawierają: 
+Opcje w miejscu produkcji:
+*\tWykrycie szkodnika w miejscu produkcji w ramach inspekcji lub testów.
+*\tZapobieganie zarażeniu produktów w miejscu produkcji (zabiegi, oporne odmiany,
+\thodowla w specyficznych warunkach, zbiór w określonej porze roku lub w określonym cyklu wzrostu,
+\tprodukcja wg certyfikowanego schematu).
+*\tStworzenie i utrzymanie wolnego od szkodnika miejsca produkcji.
+Opcje po zbiorach, przed odprawą lub w trakcie transportu:
+*\tWykrycie w przesyłkach poprzez inspekcje lub testowanie.
+*\tUsunięcie szkodnika z przesyłki w wyniku zabiegów lub innych procedur fitosanitarnych
+\t(usunięcie określonych części roślin lub produktów roślinnych, metody przeładunku i pakowania,
+\tspecyficzne warunki lub zabiegi w trakcie transportu).
+Opcje po wejściu przesyłek:
+*\tWykrycie podczas kwarantanny po wejściu.
+*\tRozważenie czy potencjalnie porażone przesyłki mogą być zaakceptowane bez ryzyka do pewnych celów,
+\tograniczoną dystrybucję na obszarze PRA lub ograniczone okresy wejścia i czy takie ograniczenia
+\tmogą być stosowane w praktyce.
+Zakaz wprowadzania na obszar PRA
+Nadzór, eradykacja, powstrzymywanie</code></pre>')
 } else {
   cat('\\begin{tcolorbox}[minipage,colback=blue!15!white,colframe=blue!85!black,arc=8pt,outer arc=5pt]
-\\scriptsize As described in PM 5/3 possible options for phytosanitary measures include\\newline
-Options at the place of production:\\newline
-*\\hspace{0.3cm} Detection of the pest at the place of production by inspection or testing\\newline
-*\\hspace{0.3cm} Prevention of infestation of the commodity at the place of production (treatment, resistant cultivars, growing the crop in specified conditions, harvest at certain times of the year or growth stages, production in a certification scheme)\\newline
-*\\hspace{0.3cm} Establishment and maintenance of pest freedom of a crop, place of production or area\\newline
-Options after harvest, at pre-clearance or during transport:\\newline
-*\\hspace{0.3cm} Detection of the pest in consignments by inspection or testing\\newline
-*\\hspace{0.3cm} Removal of the pest from the consignment by treatment or other phytosanitary procedures (remove certain parts of the plant or plant product, handling and packing methods, specific conditions or treatments during transport)\\newline
-Options that can be implemented after entry of consignments:\\newline
-*\\hspace{0.3cm} Detection during post-entry quarantine\\newline
-*\\hspace{0.3cm} Consider whether consignments that may be infested be accepted without risk for certain end uses, limited distribution in the PRA area, or limited periods of entry, and can such limitations be applied in practice\\newline
-Prohibition\\newline
-Surveillance, eradication, containment
+\\scriptsize Na podstawie PM 5/3 potencjalne opcje w przypadku środków fitosanitarnych zawierają:\\newline
+Opcje w miejscu produkcji:\\newline
+*\\hspace{0.3cm} Wykrycie szkodnika w miejscu produkcji w ramach inspekcji lub testów.\\newline
+*\\hspace{0.3cm} Zapobieganie zarażeniu produktów w miejscu produkcji (zabiegi, oporne odmiany, hodowla w specyficznych warunkach, zbiór w określonej porze roku lub w określonym cyklu wzrostu, produkcja wg certyfikowanego schematu).\\newline
+*\\hspace{0.3cm} Stworzenie i utrzymanie wolnego od szkodnika miejsca produkcji.\\newline
+Opcje po zbiorach, przed odprawą lub w trakcie transportu:\\newline
+*\\hspace{0.3cm} Wykrycie w przesyłkach poprzez inspekcje lub testowanie.\\newline
+*\\hspace{0.3cm} Usunięcie szkodnika z przesyłki w wyniku zabiegów lub innych procedur fitosanitarnych (usunięcie określonych części roślin lub produktów roślinnych, metody przeładunku i pakowania, specyficzne warunki lub zabiegi w trakcie transportu).\\newline
+Opcje po wejściu przesyłek:\\newline
+*\\hspace{0.3cm} Wykrycie podczas kwarantanny po wejściu.\\newline
+*\\hspace{0.3cm} Rozważenie czy potencjalnie porażone przesyłki mogą być zaakceptowane bez ryzyka do pewnych celów, ograniczoną dystrybucję na obszarze PRA lub ograniczone okresy wejścia i czy takie ograniczenia mogą być stosowane w praktyce.\\newline
+Zakaz wprowadzania na obszar PRA\\newline
+Nadzór, eradykacja, powstrzymywanie
 \\end{tcolorbox}')
 }
 ```
@@ -668,56 +726,56 @@ kable(Q17_1, col.names = c('Possible pathways (in order of importance)',
 }
 ```
 
-  II) Management measures for eradication, containment and control
+  II) Środki zarządzania eradykacją, powstrzymywaniem i kontrolą
 
-*Detail all available management measures used to eradicate, contain and control the pest. Indicate the effectiveness (including cost- effectiveness) and feasibility of the measures.*
+*Wyszczególnić wszystkie możliwe środki zarządzania używane do eradykacji, powstrzymania i kontroli nad agrofagiem. Wskazać efektywność (wraz z opłacalnością) oraz wykonalność środków.*
 
-(@) Uncertainty:
+(@) Niepewność:
 
-*List and describe the main sources of uncertainty within the risk assessment and risk management. State whether a detailed PRA is needed to reduce key aspects of uncertainty (if so state which parts of the PRA should be focused on). Comment on what work would be needed to address uncertainties (e.g. for distribution the need for surveys, produce epidemiological data…)*
+*Przedstawić listę i opisać główne źródła niepewności w ocenie ryzyka i zarządzaniu ryzykiem. Określić czy szczegółowe PRA jest niezbędne do zredukowania kluczowych aspektów niepewności (jeśli tak, wskazać, na których częściach PRA powinno się skupić). Skomentować jakie prace powinny zostać wykonane żeby zaadresować niepewności.*
 
-(@) Remarks:
+(@) Uwagi:
 
-*Add any other relevant information or recommendations. For example when phytosanitary measures are not considered appropriate, recommendations for the development of other control strategies can be made (e.g. Integrated Pest Management, certification schemes).*
-
+*Dodać wszystkie inne ważne informacje lub rekomendacje. Na przykład: kiedy środki fitosanitarne są uważane za niekonieczne/nieodpowiednie, rekomendacje rozwoju innych strategii kontroli (np. zintegrowane zarządzanie szkodnikiem, schematy certyfikacji).*
+<!-- Po wypełnieniu całego dokumentu skasować poniższy kod pomiędzy ``` i ```.  -->
 ```{r echo = F, comment = NULL, results = 'asis'}
 if (knitr::is_html_output()) {
- cat('<pre class="bg-warning"><code>Once the analysis has been completed, a summary should be prepared.\n(See the summary box at the beginning of the Express PRA.)</code></pre>')
+ cat('<pre class="bg-warning"><code>Po wykonaniu całej analizy powinno zostać wykonane podsumowanie na początku Ekspres PRA</code></pre>')
 } else {
   cat('\\begin{tcolorbox}[minipage,colback=yellow!50!white,colframe=yellow!50!black,arc=8pt,outer arc=5pt]
 \\centering
-\\scriptsize Once the analysis has been completed, a summary should be prepared.\\newline (See the summary box at the beginning of the Express PRA.)
+\\scriptsize Po wykonaniu całej analizy powinno zostać wykonane podsumowanie na początku Ekspres PRA.
 \\end{tcolorbox}')
 }
 ```
 
 # (APPENDIX) Appendix {-}
 
-# Photographs
-
+# Zdjęcia
+<!-- Po wypełnieniu całego dokumentu skasować poniższy kod pomiędzy ``` i ```.  -->
 ```{r echo = F, comment = NULL, results='asis'}
 if (knitr::is_html_output()) {
-cat('<pre class="bg-warning"><code>Provide any additional information as well as any relevant and informative pictures here.</code></pre>')
+cat('<pre class="bg-warning"><code>Załączyć wszelkie dodatkowe informacje, oraz odpowiednie i informatywne zdjęcia.</code></pre>')
 } else {
   cat('\\begin{tcolorbox}[minipage,colback=yellow!50!white,colframe=yellow!50!black,arc=8pt,outer arc=5pt]
 \\centering
-\\scriptsize Provide any additional information,\\newline
-as well as any relevant and informative pictures here.
+\\scriptsize Załączyć wszelkie dodatkowe informacje,\\newline
+oraz odpowiednie i informatywne zdjęcia.
 \\end{tcolorbox}')
 }
 ```
-# Climate
+# Klimat
 
-Models and climatic conditions
-
+Modele i warunki klimatyczne.
+<!-- Po wypełnieniu całego dokumentu skasować poniższy kod pomiędzy ``` i ```.  -->
 ```{r echo = F, comment = NULL, results='asis'}
 if (knitr::is_html_output()) {
-cat('<pre class="bg-warning"><code>Provide references cited above (see Instructions for authors to the EPPO Bulletin).
-When referring to websites, include the web address and date accessed.</code></pre>')
+cat('<pre class="bg-warning"><code>Załączyć referencje do zacytowanych powyżej.
+W przypadku stron internetowych uwzględnić adres oraz datę dostępu.</code></pre>')
 } else {
   cat('\\begin{tcolorbox}[minipage,colback=yellow!50!white,colframe=yellow!50!black,arc=8pt,outer arc=5pt]
 \\centering
-\\scriptsize Provide references cited above (see Instructions for authors to the EPPO Bulletin).\\newline When referring to websites, include the web address and date accessed.
+\\scriptsize Załączyć referencje do zacytowanych powyżej.\\newline W przypadku stron internetowych uwzględnić adres oraz datę dostępu.
 \\end{tcolorbox}')
 }
 ```

@@ -1,13 +1,12 @@
-"Possible pathway
-(in order of importance)",Pathway:
-Short description explaining why it is considered as a pathway ,???
-Is the pathway prohibited in the PRA area?,???
-Has the pest already intercepted on the pathway?,???
-What is the most likely stage associated with the pathway?,???
-What are the important factors for association with the pathway?,???
-Is the pest likely to survive transport and storage along this pathway?,???
-Can the pest transfer from this pathway to a suitable habitat?,???
-Will the volume of movement along the pathway support entry?,???
-Will the frequency of movement along the pathway support entry?,???
-Rating of the likelihood of entry ,Low/Medium/High
-Rating of uncertainty,Low/Medium/High
+Możliwa droga przenikania,Droga:
+"Krótki opis, dlaczego jest rozważana jako droga przenikania",???
+"Czy droga przenikania jest zakazana na obszarze PRA?",???
+"Czy agrofag był już przechwycony tą drogą przenikania?",???
+"Jakie stadium jest najbardziej prawdopodobnie związane z tą drogą przenikania?",???
+"Jakie są ważne czynniki związane z tą drogą przenikania?",???
+"Czy agrofag może przeżyć transport i składowanie w tej drodze przenikania?",???
+"Czy agrofag może zostać przeniesiony z tej drogi przenikania na odpowiednie siedlisko?",???
+"Czy wielkość przemieszczania tą drogą przenikania sprzyja wejściu agrofaga?",???
+"Czy częstotliwość przemieszczania tą drogą przenikania sprzyja wejściu agrofaga?",???
+"Ocena prawdopodobieństwa wejścia",Niskie/Średnie/Wysokie
+"Ocena niepewności",Niska/Średnia/Wysoka

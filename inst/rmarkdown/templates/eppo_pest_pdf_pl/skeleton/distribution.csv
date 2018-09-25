@@ -1,10 +1,10 @@
-Kontynent,Distribution,Skomentować status szkodnika w poszczególnych krajach występowania,Źródła
-Africa ,"(list countries, or provide a general indication , e.g. present in West Africa)","(e.g. widespread, native, non-native, established) ",
-North America,Canada,Alberta,
-North America,Canada,Ontario,
-North America,Mexico,,
-South America,Brazil,Rio de Janeiro,
-Asia,Chiny,,
-Asia,Bangladesh,,
-Europe,,,
+Kontynent,Distribution,Skomentować status szkodnika w poszczególnych krajach występowania,Reference
+Afryka ,"(wymienić kraje, lub podać ogólne wskazanie, np. Afryka zachodnia)","(e.g. szeroko rozpowszechniony, natywny, introdukowany, zadomowiony) ",@eppo2018
+Ameryka Północna,Kanada,Alberta,
+Ameryka Północna,Kanada,Ontario,
+Ameryka Północna,Meksyk,,
+Ameryka Południowa,Brazylia,Rio de Janeiro,
+Azja,Chiny,,
+Azja,Bangladesz,,
+Europa,,,
 Oceania,,,
