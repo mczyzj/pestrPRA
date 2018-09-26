@@ -89,14 +89,14 @@ Q7 <- read.csv('hosts.csv',
                header = T,
                stringsAsFactors = F)
 if (knitr::is_html_output()) {
-kable(Q7, col.names = c('Nazwa naukowa rośliny żywicielskiej (nazwa potoczna)',
-               'Występowanie na obszarze PRA',
-               'Komentarz (np. główne/poboczne siedliska)',
+kable(Q7, col.names = c('Nazwa naukowa szkodnika (nazwa powszechna)',
+               'Obecność na obszarze PRA',
+               'Komentarze',
                'References')) %>%
   kable_styling(full_width = T, bootstrap_options = c('striped', 'condensed', 'bordered')) %>%
   row_spec(row = 0, bold = T, background = '#f5f6fa') %>%
-  column_spec(1:2, width = '10em') %>%
-  column_spec(4, width = '8em')
+  column_spec(1:2, width = '15em') %>%
+  column_spec(4, width = '12em')
 } else {
   Q7L <- Q7$Reference
   
@@ -110,16 +110,15 @@ kable(Q7, col.names = c('Nazwa naukowa rośliny żywicielskiej (nazwa potoczna)'
     bind_cols(Q7, .) %>%
     select(-'Reference')
   Q7L$References[Q7L$References == '\\citeauthor{}, \\hyperlink{ref-}{\\citeyear{}}'] <- NA
-  kable(Q7L, 'latex', booktabs = T, longtable = T,
-    col.names = c('Nazwa naukowa rośliny żywicielskiej (nazwa potoczna)',
-               'Występowanie na obszarze PRA',
-               'Komentarz (np. główne/poboczne siedliska)',
+  kable(Q7L, 'latex', booktabs = T,
+    col.names = c('Nazwa naukowa szkodnika (nazwa powszechna)',
+               'Obecność na obszarze PRA',
+               'Komentarze',
                'References'), escape = F) %>%
     kable_styling(full_width = T,
-                  latex_options = c('hold_position', 'repeat_header')) %>%
+                  latex_options = c('striped', 'hold_position', 'repeat_header')) %>%
     row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
-    column_spec(c(1), width = '2.4cm') %>%
-    column_spec(2,4, width = '2cm')
+    column_spec(c(1,2,4), width = '3cm')
 }
 ```
 

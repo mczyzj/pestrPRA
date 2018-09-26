@@ -190,7 +190,7 @@ $endif$
 \let\rmarkdownfootnote\footnote%
 \def\footnote{\protect\rmarkdownfootnote}
 
-%%% Remove abstract
+%%% delete abstract name
 \renewcommand{\abstractname}{\vspace{-\baselineskip}}
 
 $if(compact-title)$
@@ -278,6 +278,7 @@ $if(abstract)$
 $abstract$
 \end{abstract}
 $endif$
+
 $if(title)$
 \maketitle
 $endif$
