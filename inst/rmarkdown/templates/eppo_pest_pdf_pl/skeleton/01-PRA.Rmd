@@ -41,10 +41,9 @@ Q6 <- read.csv('distribution.csv',
                stringsAsFactors = F)
 
 if (knitr::is_html_output()) {
-kable(Q6, col.names = c('Continent',
-                        'Distribution',
-                        'Provide comments on the pest status in the different
-                        countries where it occurs',
+kable(Q6, col.names = c('Kontynent',
+                        'Rozmieszczenie',
+                        'Komentarz do statusu agrofaga w poszczególnych krajach',
                         'Reference')) %>%
   kable_styling(full_width = T, bootstrap_options = c('striped', 'condensed', 'bordered')) %>%
   row_spec(row = 0, bold = T, background = '#f5f6fa') %>%
@@ -66,8 +65,8 @@ kable(Q6, col.names = c('Continent',
     select(-'Reference')
   Q6L$References[Q6L$References == '\\citeauthor{}, \\hyperlink{ref-}{\\citeyear{}}'] <- NA
   kable(Q6L, 'latex', booktabs = T, longtable = T,
-        col.names = c('Continent', 'Distributo',
-                      'Provide comments on the pest status in the different countries where it occurs',
+        col.names = c('Kontynent', 'Rozmieszczenie',
+                      'Komentarz do statusu agrofaga w poszczególnych krajach',
                       'References'), escape = F) %>%
     kable_styling(full_width = T,
                   latex_options = c('hold_position', 'repeat_header')) %>%
@@ -86,19 +85,18 @@ kable(Q6, col.names = c('Continent',
 *Jeśli zakres roślin żywicielskich jest duży, można je zgrupować (np. drzewa liściaste, rodzina etc.) i skupić się na występujących na obszarze PRA. Jeśli konieczne, różnica w podatności pomiędzy żywicielami powinna być odnotowana. Pomocne może być odniesienie do baz [FAOSTAT](http://www.fao.org/faostat/) lub [EUROSTAT](https://ec.europa.eu/eurostat).*
 
 ```{r echo = F, eval = T}
-Q7 <- read.csv('habitats.csv',
+Q7 <- read.csv('hosts.csv',
                header = T,
                stringsAsFactors = F)
 if (knitr::is_html_output()) {
-kable(Q7, col.names = c('Habitat (main)',
-               'EUNIS habitat types',
-               'Status of habitat (e.g. threatened or protected)',
-               'Is the pest present in the habitat in the PRA area',
-               'Comments',
+kable(Q7, col.names = c('Nazwa naukowa rośliny żywicielskiej (nazwa potoczna)',
+               'Występowanie na obszarze PRA',
+               'Komentarz (np. główne/poboczne siedliska)',
                'References')) %>%
   kable_styling(full_width = T, bootstrap_options = c('striped', 'condensed', 'bordered')) %>%
   row_spec(row = 0, bold = T, background = '#f5f6fa') %>%
-  column_spec(1:6, width = '10em')
+  column_spec(1:2, width = '10em') %>%
+  column_spec(4, width = '8em')
 } else {
   Q7L <- Q7$Reference
   
@@ -113,17 +111,15 @@ kable(Q7, col.names = c('Habitat (main)',
     select(-'Reference')
   Q7L$References[Q7L$References == '\\citeauthor{}, \\hyperlink{ref-}{\\citeyear{}}'] <- NA
   kable(Q7L, 'latex', booktabs = T, longtable = T,
-    col.names = c('Habitat (main)',
-               'EUNIS habitat types',
-               'Status of habitat (e.g. threatened or protected)',
-               'Is the pest present in the habitat in the PRA area',
-               'Comments',
+    col.names = c('Nazwa naukowa rośliny żywicielskiej (nazwa potoczna)',
+               'Występowanie na obszarze PRA',
+               'Komentarz (np. główne/poboczne siedliska)',
                'References'), escape = F) %>%
     kable_styling(full_width = T,
                   latex_options = c('hold_position', 'repeat_header')) %>%
     row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
-    column_spec(c(1:3,6), width = '2.4cm') %>%
-    column_spec(4, width = '2cm')
+    column_spec(c(1), width = '2.4cm') %>%
+    column_spec(2,4, width = '2cm')
 }
 ```
 
@@ -650,17 +646,17 @@ Q17_1 <- read.csv('measures.csv',
                header = T,
                stringsAsFactors = F)
 if (knitr::is_html_output()) {
-kable(Q17_1, col.names = c('Possible pathways (in order of importance)',
-                           'Measures identified',
-                           'Cost effectiveness of measures')) %>%
+kable(Q17_1, col.names = c('Możliwe drogi przenikania (w kolejności od najważniejszej)',
+                           'Możliwe środki',
+                           'Opłacalność środków')) %>%
   kable_styling(full_width = T, bootstrap_options = c('striped', 'condensed', 'bordered')) %>%
   row_spec(row = 0, bold = T, background = '#f5f6fa') %>%
   column_spec(c(2,3), width = '17em')
 } else {
   kable(Q17_1, booktabs = T, longtable = T,
-        col.names = c('Possible pathways (in order of importance)',
-                      'Measures identified',
-                      'Cost effectiveness of measures')) %>%
+        col.names = c('Możliwe drogi przenikania (w kolejności od najważniejszej)',
+                      'Możliwe środki',
+                      'Opłacalność środków')) %>%
   kable_styling(full_width = T, latex_options = c('hold_position', 'repeat_header')) %>%
   row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
   column_spec(c(2,3), width = '4.5cm')
@@ -690,7 +686,7 @@ if (knitr::is_html_output()) {
 }
 ```
 
-# (APPENDIX) Appendix {-}
+# (APPENDIX) Załącznik {-}
 
 # Zdjęcia
 <!-- Po wypełnieniu całego dokumentu skasować poniższy kod pomiędzy ``` i ```.  -->

@@ -190,6 +190,9 @@ $endif$
 \let\rmarkdownfootnote\footnote%
 \def\footnote{\protect\rmarkdownfootnote}
 
+%%% Remove abstract
+\renewcommand{\abstractname}{\vspace{-\baselineskip}}
+
 $if(compact-title)$
 %%% Change title format to be more compact
 \usepackage{titling}
