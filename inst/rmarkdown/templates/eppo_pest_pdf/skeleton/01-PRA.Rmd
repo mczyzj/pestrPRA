@@ -68,8 +68,8 @@ kable(Q6, col.names = c('Continent',
         col.names = c('Continent', 'Distributo',
                       'Provide comments on the pest status in the different countries where it occurs',
                       'References'), escape = F) %>%
-    kable_styling(full_width = T,
-                  latex_options = c('striped', 'hold_position', 'repeat_header')) %>%
+    kable_styling(full_width = T, longtable = T,
+                  latex_options = c('hold_position', 'repeat_header')) %>%
     column_spec(1, width = '2.5cm') %>%
     column_spec(c(2,3), width = '4.5cm') %>%
     column_spec(4, width = '3cm') %>%
@@ -110,13 +110,13 @@ kable(Q7, col.names = c('Host scientific name (common name)',
     bind_cols(Q7, .) %>%
     select(-'Reference')
   Q7L$References[Q7L$References == '\\citeauthor{}, \\hyperlink{ref-}{\\citeyear{}}'] <- NA
-  kable(Q7L, 'latex', booktabs = T,
+  kable(Q7L, 'latex', booktabs = T, longtable = T,
     col.names = c('Host scientific name (common name)',
                'Presence in PRA area',
                'Comments',
                'References'), escape = F) %>%
     kable_styling(full_width = T,
-                  latex_options = c('striped', 'hold_position', 'repeat_header')) %>%
+                  latex_options = c('hold_position', 'repeat_header')) %>%
     row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
     column_spec(c(1,2,4), width = '3cm')
 }
@@ -160,13 +160,13 @@ if (knitr::is_html_output()) {
     row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
     column_spec(1, width = '3em')
 } else {
-  kable(Q8, 'latex', booktabs = T,
+  kable(Q8, 'latex', booktabs = T, longtable = T,
         col.names = c('Possible pathway',
                      'Short description explaining why it is considered as a pathway',
                      'Pathway prohibited in the PRA area?',
                      'Pest already intercepted on the pathway?')) %>%
     kable_styling(full_width = T,
-                  latex_options = c('striped', 'hold_position', 'repeat_header')) %>%
+                  latex_options = c('hold_position', 'repeat_header')) %>%
     row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
     column_spec(1, width = '3cm') %>%
     column_spec(3:4, width = '2cm')
