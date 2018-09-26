@@ -184,7 +184,7 @@ if (knitr::is_html_output()) {
   kable_styling(full_width = T, bootstrap_options = c('condensed', 'bordered')) %>%
   row_spec(row = 0, bold = T, background = '#f5f6fa') %>%
   column_spec(2:4, width = '8em', bold = T) %>%
-  row_spec(1:2, color = 'black', background = '#f0ae82')
+  row_spec(1:2, color = 'black', background = '#f5d0b8')
 } else {
   Q8R %>%
     dplyr::mutate_all(linebreak) %>%
@@ -212,7 +212,7 @@ if (knitr::is_html_output()) {
   kable_styling(full_width = T, bootstrap_options = c('condensed', 'bordered')) %>%
   row_spec(row = 0, bold = T, background = '#f5f6fa') %>%
   column_spec(2:4, width = '8em', bold = T) %>%
-  row_spec(1:2, color = 'black', background = '#f0ae82')
+  row_spec(1:2, color = 'black', background = '#f5d0b8')
 } else {
   Q9 %>%
     dplyr::mutate_all(linebreak) %>%
@@ -240,7 +240,7 @@ kable(Q10, align = c('l', 'c', 'c', 'c')) %>%
   kable_styling(full_width = T, bootstrap_options = c('bordered')) %>%
   row_spec(row = 0, bold = T, background = '#f5f6fa') %>%
   column_spec(2:4, width = '8em', bold = T) %>%
-  row_spec(1:2, color = 'black', background = '#f0ae82')
+  row_spec(1:2, color = 'black', background = '#f5d0b8')
 } else {
   Q10 %>%
     dplyr::mutate_all(linebreak) %>%
@@ -274,7 +274,7 @@ kable(Q11, align = c('l', 'c', 'c', 'c')) %>%
   kable_styling(full_width = T, bootstrap_options = c('condensed', 'bordered')) %>%
   row_spec(row = 0, bold = T, background = '#f5f6fa') %>%
   column_spec(2:4, width = '8em', bold = T) %>%
-  row_spec(1:2, color = 'black', background = '#f0ae82')
+  row_spec(1:2, color = 'black', background = '#f5d0b8')
 } else {
   Q11 %>%
     dplyr::mutate_all(linebreak) %>%
@@ -304,7 +304,7 @@ kable(Q12_01, align = c('l', 'c', 'c', 'c')) %>%
   kable_styling(full_width = T, bootstrap_options = c('condensed', 'bordered')) %>%
   row_spec(row = 0, bold = T, background = '#f5f6fa') %>%
   column_spec(2:4, width = '8em', bold = T) %>%
-  row_spec(1:2, color = 'black', background = '#f0ae82')
+  row_spec(1:2, color = 'black', background = '#f5d0b8')
 } else {
     Q12_01 %>%
       dplyr::mutate_all(linebreak) %>%
@@ -338,7 +338,7 @@ kable(Q13_01, align = c('l', 'c', 'c', 'c')) %>%
   kable_styling(full_width = T, bootstrap_options = c('condensed', 'bordered')) %>%
   row_spec(row = 0, bold = T, background = '#f5f6fa') %>%
   column_spec(2:4, width = '8em', bold = T) %>%
-  row_spec(1:2, color = 'black', background = '#f0ae82')
+  row_spec(1:2, color = 'black', background = '#f5d0b8')
 } else {
     Q13_01 %>%
       dplyr::mutate_all(linebreak) %>%
