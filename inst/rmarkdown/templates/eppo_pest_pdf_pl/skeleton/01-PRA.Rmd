@@ -1,69 +1,10 @@
----
-title: 'Express Pest Risk Analysis:'
-author:
-- affiliationNum: A
-  email: author_one@pra.org
-  footnote: Autor korespondencyjny
-  name: Autor Pierwszy
-- affiliationNum: B
-  name: Autor Drugi
-- affiliationNum: B
-  name: Autor Trzeci
-- affiliationNum: C
-  name: Autor Czwarty
-date: Sierpień 9, 2018^[Raport został wygenerowany w R [@rcore2018] z użyciem knitr
-  i bookdown [@xie2015; @xie2016]]
-address:
-- address: Departament, Ulica, Miasto, Kod pocztowy
-  affiliationNum: A
-  code: Jakiś Instytut Technologiczny
-- address: Departament, Ulica, Miasto, Kod pocztowy
-  affiliationNum: B
-  code: Inny Universytet
-- address: Departament, Ulica, Miasto, Kod pocztowy
-  affiliationNum: C
-  code: Ministerstwo Wiedzy
-bibliography: pra.bib
-citecolor: TealBlue
-classoption: a4paper
-compact-title: yes
-always_allow_html: yes
-geometry: margin=1in
-graphics: yes
-keywords:
-- Ocena Zagrożenia Agrofagiem
-- EPPO
-link-citations: yes
-linkcolor: TealBlue
-pest: pest name
-site: bookdown::bookdown_site
-taxoauthor: Linnaeus, 1735
-abstract: |
-  `r if(knitr:::is_latex_output()) paste(readLines("abstract.md"), collapse = '\n  ')`
-urlcolor: Cerulean
----
+# (PART) Wstęp {-}
 
-# Wstęp
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library('kableExtra')
-library('magrittr')
-library('dplyr')
-if(knitr::is_latex_output()) {
-  options(knitr.table.format = "latex")
-} else {
-    options(knitr.table.format = "html")
-}
-formatingCite <- function(x) {
-  paste0('\\citeauthor{', x, '}, ', '\\hyperlink{ref-', x, '}',
-                          '{\\citeyear{', x, '}}')
-}
-```
 Powód wykonania PRA: *(np. przechwycenie, pojaw)*
 
 Obszar PRA: **Rzeczpospolita Polska**
 
-# Ocena zagrożenia Agrofagiem
+# (PART) Ocena zagrożenia Agrofagiem {-}
 
 (@) Taksonomia:
 
@@ -386,21 +327,21 @@ kable(Q12_01, align = c('l', 'c', 'c', 'c')) %>%
 ```{r echo = F, comment = NULL, results='asis'}
 if (knitr::is_html_output()) { 
 cat('<pre class="bg-info"><code>Przykłady usług ekosystemowych do rozważenia w każdej kategorii zawierają:
-\n\n*Provisioning services\t\t\t\t\t\t\t\t*Supporting services
-\tFresh water\t\t\t\t\t\t\t\t\t\t\tNutrient cycling
-\tGenetic resources\t\t\t\t\t\t\t\t\tPrimary production
-\tFood production (crop and livestock etc.)\t\t\tHabitat stability
-\tCommodity production (fibre, timber etc.)
-*Regulating services\t\t\t\t\t\t\t\t*Cultural services
-\tSoil formation\t\t\t\t\t\t\t\t\t\tAesthetic experiences
-\tPollination\t\t\t\t\t\t\t\t\t\t\tCultural heritage
-\tNatural hazard regulation (fire, erosion, flooding)\tTourism
-\tWater regulation\t\t\t\t\t\t\t\t\tRecreation (fishing, nature enjoyment etc.)
-\tBiodiversity\t\t\t\t\t\t\t\t\t\tSpiritual wellbeing
-\tDecomposition
-\tPhotosynthesis and primary production
-\tAir quality regulation
-\tPest and disease regulation</code></pre>')
+\n\n*Usługi zabezpieczające\t\t\t\t\t\t\t\t*Usługi wspomagające
+\tCzysta woda\t\t\t\t\t\t\t\t\t\t\tObieg materii
+\tZasoby genetyczne\t\t\t\t\t\t\t\t\tProdukcja pierwotna
+\tProdukcja żywności\t\t\tStabilność siedlisk
+\tProdukcja towarów (włókna, drewno etc.)
+*Usługi regulujące\t\t\t\t\t\t\t\t*Usługi kulturowe
+\tTworzenie gleby\t\t\t\t\t\t\t\t\t\tDoznania estetyczne
+\tZapylanie\t\t\t\t\t\t\t\t\t\t\tDziedzictwo kulturowe
+\tRegulacja naturalnych zagrożeń (np. pożary)\tTurystyka
+\tRegulacje wodne\t\t\t\t\t\t\t\t\tRekreacja
+\tBioróżnorodność\t\t\t\t\t\t\t\t\t\tDobrostan duchowy
+\tDekompozycja
+\tFotosynteza i produkcja pierwotna
+\tCzystość powierza
+\tRegulacja chorób i szkodników</code></pre>')
 } else {
   cat('\\begin{tcolorbox}[minipage,colback=blue!15!white,colframe=blue!85!black,arc=8pt,outer arc=5pt]
 \\scriptsize Przykłady usług ekosystemowych do rozważenia w każdej kategorii zawierają:
@@ -630,12 +571,12 @@ Scenariusz zmiany klimatu:
 ```{r echo = F, comment = NULL, results='asis'}
 if (knitr::is_html_output()) {
 cat('<pre class="bg-info"><code>W szczególności rozważyć poniższe aspekty:\n
-*Pathways (see point 8)\t\t\t\t\t\t\t*Spread
-*Establishment\t\t\t\t\t\t\t\t\t\tDensity dependent dispersal
-\tDay degree requirements\t\t\t\t\t\t\tExtreme weather events
-\tClimate limitations\t\t\t\t\t\t\t*Impact
-\tChanges in reproduction/growth\t\t\t\t\tIncreased fitness
-\tInter-specific competition\t\t\t\t\t\tPer capita effects</code></pre>'
+*Drogi przenikania (patrz pyt. 8)\t\t\t\t\t\t\t*Rozprzestrzenienie
+*Zasiedlenie\t\t\t\t\t\t\t\t\t\tRozprzestrzenienie zależne od zagęszczenia
+\tWymagania w stosunku do stopniodni\t\t\t\t\t\t\tEkstremalne warunki pogodowe
+\tOgraniczenia klimatyczne\t\t\t\t\t\t\t*Wpływ
+\tZmiany we wzroście/reprodukcji\t\t\t\t\tWzrost dostosowania
+\tKonkurencja międzygatunkowa\t\t\t\t\t\tEfekty per capita</code></pre>'
 )
 } else {
   cat('\\begin{tcolorbox}[minipage,colback=blue!15!white,colframe=blue!85!black,arc=8pt,outer arc=5pt]
@@ -656,7 +597,7 @@ Zasiedlenie\\tabto{6.8cm} *\\hspace{0.3cm}Rozprzestrzenienie zależne od zagęsz
 
 *Jeżeli ocena wskazuje, że środki fitosanitarne nie są konieczne dla kraju, ale istnieją przesłanki, że inne kraje EPPO są narażone na wysokie ryzyko, należy to nadmienić.*
 
-# Zarządzanie ryzykiem zagrożenia agrofagiem.
+# (PART) Zarządzanie ryzykiem zagrożenia agrofagiem. {-}
 
 (@) Środki fitosanitarne
 
@@ -780,4 +721,4 @@ W przypadku stron internetowych uwzględnić adres oraz datę dostępu.</code></
 }
 ```
 
-# References {-}
+# Źródła {-}
