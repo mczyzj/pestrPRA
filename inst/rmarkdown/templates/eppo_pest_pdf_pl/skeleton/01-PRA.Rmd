@@ -112,7 +112,7 @@ kable(Q7, col.names = c('Habitat (main)',
     bind_cols(Q7, .) %>%
     select(-'Reference')
   Q7L$References[Q7L$References == '\\citeauthor{}, \\hyperlink{ref-}{\\citeyear{}}'] <- NA
-  kable(Q7L, 'latex', booktabs = T,
+  kable(Q7L, 'latex', booktabs = T, longtable = T,
     col.names = c('Habitat (main)',
                'EUNIS habitat types',
                'Status of habitat (e.g. threatened or protected)',
@@ -170,7 +170,7 @@ if (knitr::is_html_output()) {
     row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
     column_spec(1, width = '22em')
 } else {
-  kable(Q8A, 'latex', booktabs = T,
+  kable(Q8A, 'latex', booktabs = T, longtable = T,
         col.names = c('Możliwa droga przenikania',
                       'Droga przenikania:')) %>%
     kable_styling(full_width = T,
