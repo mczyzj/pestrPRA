@@ -75,4 +75,3 @@ if (knitr::is_html_output()) {
 <b>Other recomendations: </b>',other_recommendations ,'</div>')
  }
 ```
-<!-- After filling all the document, please delete comments and instructions [usually in italics or color frames] before submitting final version  -->
