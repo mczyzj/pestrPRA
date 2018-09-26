@@ -1,10 +1,10 @@
-# Initiation
+# (PART) Initiation {-}
 
 Reason for performing the PRA: *(e.g. interceptions, outbreak)*
 
 PRA area: *specify the PRA area being assessed*
 
-# Pest risk assessment
+# (PART) Pest risk assessment {-}
 
 (@) Taxonomy:
 
@@ -359,7 +359,7 @@ kable(Q13_01, align = c('l', 'c', 'c', 'c')) %>%
 
 *Summarize the likelihood of entry, establishment, spread and possible impact without phytosanitary measure. An overall rating should be given in the summary part which is placed at the beginning of the Express PRA. Then consider whether phytosanitary measures are necessary. If the assessment shows that phytosanitary measures are not required for a country but there are indications that other EPPO countries are at higher risk, mention it.*
 
-# Pest risk menagment.
+# (PART) Pest risk menagment {-}
 
 (@) Phytosanitary measures 
 
