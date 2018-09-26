@@ -236,7 +236,7 @@ $endif$
 $if(author)$
   \author{$for(author)$$author.name$\textsuperscript{$author.affiliationNum$}$sep$, $endfor$}
   $if(compact-title)$
-  \preauthor{\flushleft\large\emph Autorzy: }
+  \preauthor{\flushleft\large\emph Authors: }
   \postauthor{\par $for(address)$$address.affiliationNum$: $address.code$, $address.address$$sep$, \\ $endfor$}
   $endif$
 $else$
@@ -246,7 +246,7 @@ $else$
   $endif$
 $endif$
 
-\corresponding{\small Autor korespondencyjny:
+\corresponding{\small Corresponding author:
   $for(author)$
   $if(author.footnote)$ \textit{$author.email$}
   $endif$
@@ -254,7 +254,7 @@ $endif$
 
 $if(date)$
   $if(compact-title)$
-  \predate{\flushleft\large\emph  Data: }
+  \predate{\flushleft\large\emph  Date: }
   \postdate{\par }
   $endif$
   \date{$date$}
@@ -282,7 +282,6 @@ $endif$
 $if(title)$
 \maketitle
 $endif$
-
 
 $for(include-before)$
 $include-before$
