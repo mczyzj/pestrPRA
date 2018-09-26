@@ -68,7 +68,7 @@ kable(Q6, col.names = c('Continent',
         col.names = c('Continent', 'Distributo',
                       'Provide comments on the pest status in the different countries where it occurs',
                       'References'), escape = F) %>%
-    kable_styling(full_width = T, longtable = T,
+    kable_styling(full_width = T,
                   latex_options = c('hold_position', 'repeat_header')) %>%
     column_spec(1, width = '2.5cm') %>%
     column_spec(c(2,3), width = '4.5cm') %>%
