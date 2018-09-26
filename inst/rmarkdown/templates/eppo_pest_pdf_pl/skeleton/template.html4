@@ -425,13 +425,13 @@ $endfor$
 
 $for(author)$
 $if(author.email)$
-Corresponding author: <a class="author_email" href="mailto:#">$author.email$</a>
+Autor korespondencyjny: <a class="author_email" href="mailto:#">$author.email$</a>
 $endif$
 $endfor$
 
 $for(corresponding)$
 $if(corresponding.email)$
-Corresponding author: <a class="author_email" href="mailto:#">$corresponding.author$</a>
+Autor korespondencyjny: <a class="author_email" href="mailto:#">$corresponding.author$</a>
 $endif$
 $endfor$
 

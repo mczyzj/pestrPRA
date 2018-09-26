@@ -70,7 +70,7 @@ kable(Q6, col.names = c('Continent',
                       'Provide comments on the pest status in the different countries where it occurs',
                       'References'), escape = F) %>%
     kable_styling(full_width = T,
-                  latex_options = c('striped', 'hold_position', 'repeat_header')) %>%
+                  latex_options = c('hold_position', 'repeat_header')) %>%
     column_spec(1, width = '2.5cm') %>%
     column_spec(c(2,3), width = '4.5cm') %>%
     column_spec(4, width = '3cm') %>%
@@ -112,7 +112,7 @@ kable(Q7, col.names = c('Habitat (main)',
     bind_cols(Q7, .) %>%
     select(-'Reference')
   Q7L$References[Q7L$References == '\\citeauthor{}, \\hyperlink{ref-}{\\citeyear{}}'] <- NA
-  kable(Q7L, 'latex', booktabs = T,
+  kable(Q7L, 'latex', booktabs = T, longtable = T,
     col.names = c('Habitat (main)',
                'EUNIS habitat types',
                'Status of habitat (e.g. threatened or protected)',
@@ -120,7 +120,7 @@ kable(Q7, col.names = c('Habitat (main)',
                'Comments',
                'References'), escape = F) %>%
     kable_styling(full_width = T,
-                  latex_options = c('striped', 'hold_position', 'repeat_header')) %>%
+                  latex_options = c('hold_position', 'repeat_header')) %>%
     row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
     column_spec(c(1:3,6), width = '2.4cm') %>%
     column_spec(4, width = '2cm')
@@ -170,11 +170,11 @@ if (knitr::is_html_output()) {
     row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
     column_spec(1, width = '22em')
 } else {
-  kable(Q8A, 'latex', booktabs = T,
+  kable(Q8A, 'latex', booktabs = T, longtable = T,
         col.names = c('Możliwa droga przenikania',
                       'Droga przenikania:')) %>%
     kable_styling(full_width = T,
-                  latex_options = c('striped', 'hold_position', 'repeat_header')) %>%
+                  latex_options = c('hold_position', 'repeat_header')) %>%
     row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
     row_spec(row = 1:11, bold = F) %>%
     column_spec(1, width = '7cm') %>%
@@ -397,7 +397,7 @@ kable(Q12_02, col.names = c('Usługi ekosystemowe',
                       'Czy szkodnik wpływa na tą usługę ekosystemową?',
                       'Krótki opis wpływu',
                       'References'), escape = F) %>%
-  kable_styling(full_width = T, latex_options = c('striped', 'hold_position', 'repeat_header')) %>%
+  kable_styling(full_width = T, latex_options = c('hold_position', 'repeat_header')) %>%
   row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
   column_spec(1, width = '3cm') %>%
   column_spec(c(2,4), width = '3.5cm')
@@ -661,7 +661,7 @@ kable(Q17_1, col.names = c('Possible pathways (in order of importance)',
         col.names = c('Possible pathways (in order of importance)',
                       'Measures identified',
                       'Cost effectiveness of measures')) %>%
-  kable_styling(full_width = T, latex_options = c('striped', 'hold_position', 'repeat_header')) %>%
+  kable_styling(full_width = T, latex_options = c('hold_position', 'repeat_header')) %>%
   row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
   column_spec(c(2,3), width = '4.5cm')
 }
