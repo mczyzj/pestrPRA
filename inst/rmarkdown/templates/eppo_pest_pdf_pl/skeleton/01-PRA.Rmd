@@ -130,7 +130,7 @@ kable(Q7, col.names = c('Nazwa naukowa szkodnika (nazwa powszechna)',
 
 ```{r echo = F, comment = NULL, results='asis'}
 if (knitr::is_html_output()) { 
-cat('<pre class="bg-info"><code>Przykłady dróg przenikania:\nRośliny do sadzenia\t\t\t\tNaturalne rozprzestrzenienie\n\nInne możliwe drogi przenikania\n*materiał pakowy\t\t\t*maszyny i transport\n*autostopowicze\t\t\t\t*przetworzone produkty roślinne\n*gleba/materiał do sadzenia\t\t\t*woda balastowa\n*odpady roślinne\t\t\t\t*sprzęt wypoczynkowy\n*ziarno dla ptaków\t\t\t\t\t*celowe wprowadzenie\n*ucieczka</code></pre>'
+cat('<pre class="bg-info"><code>Przykłady dróg przenikania:\nRośliny do sadzenia\t\t\t\tNaturalne rozprzestrzenienie\n\nInne możliwe drogi przenikania\n*materiał pakowy\t\t\t\t\t*maszyny i transport\n*autostopowicze\t\t\t\t\t\t*przetworzone produkty roślinne\n*gleba/materiał do sadzenia\t\t\t*woda balastowa\n*odpady roślinne\t\t\t\t\t*sprzęt wypoczynkowy\n*ziarno dla ptaków\t\t\t\t\t*celowe wprowadzenie\n*ucieczka</code></pre>'
 )
 } else {
     cat('\\begin{tcolorbox}[minipage,colback=blue!15!white,colframe=blue!85!black,arc=8pt,outer arc=5pt]
@@ -325,13 +325,13 @@ cat('<pre class="bg-info"><code>Przykłady usług ekosystemowych do rozważenia 
 \n\n*Usługi zabezpieczające\t\t\t\t\t\t\t\t*Usługi wspomagające
 \tCzysta woda\t\t\t\t\t\t\t\t\t\t\tObieg materii
 \tZasoby genetyczne\t\t\t\t\t\t\t\t\tProdukcja pierwotna
-\tProdukcja żywności\t\t\tStabilność siedlisk
+\tProdukcja żywności\t\t\t\t\t\t\t\t\tStabilność siedlisk
 \tProdukcja towarów (włókna, drewno etc.)
 *Usługi regulujące\t\t\t\t\t\t\t\t*Usługi kulturowe
 \tTworzenie gleby\t\t\t\t\t\t\t\t\t\tDoznania estetyczne
 \tZapylanie\t\t\t\t\t\t\t\t\t\t\tDziedzictwo kulturowe
-\tRegulacja naturalnych zagrożeń (np. pożary)\tTurystyka
-\tRegulacje wodne\t\t\t\t\t\t\t\t\tRekreacja
+\tRegulacja naturalnych zagrożeń (np. pożary)\t\t\tTurystyka
+\tRegulacje wodne\t\t\t\t\t\t\t\t\t\tRekreacja
 \tBioróżnorodność\t\t\t\t\t\t\t\t\t\tDobrostan duchowy
 \tDekompozycja
 \tFotosynteza i produkcja pierwotna
@@ -566,12 +566,12 @@ Scenariusz zmiany klimatu:
 ```{r echo = F, comment = NULL, results='asis'}
 if (knitr::is_html_output()) {
 cat('<pre class="bg-info"><code>W szczególności rozważyć poniższe aspekty:\n
-*Drogi przenikania (patrz pyt. 8)\t\t\t\t\t\t\t*Rozprzestrzenienie
-*Zasiedlenie\t\t\t\t\t\t\t\t\t\tRozprzestrzenienie zależne od zagęszczenia
-\tWymagania w stosunku do stopniodni\t\t\t\t\t\t\tEkstremalne warunki pogodowe
-\tOgraniczenia klimatyczne\t\t\t\t\t\t\t*Wpływ
-\tZmiany we wzroście/reprodukcji\t\t\t\t\tWzrost dostosowania
-\tKonkurencja międzygatunkowa\t\t\t\t\t\tEfekty per capita</code></pre>'
+*Drogi przenikania (patrz pyt. 8)\t\t\t\t\t*Rozprzestrzenienie
+*Zasiedlenie\t\t\t\t\t\t\t\t\t\t\tRozprzestrzenienie zależne od zagęszczenia
+\tWymagania w stosunku do stopniodni\t\t\t\t\tEkstremalne warunki pogodowe
+\tOgraniczenia klimatyczne\t\t\t\t\t\t*Wpływ
+\tZmiany we wzroście/reprodukcji\t\t\t\t\t\tWzrost dostosowania
+\tKonkurencja międzygatunkowa\t\t\t\t\t\t\tEfekty per capita</code></pre>'
 )
 } else {
   cat('\\begin{tcolorbox}[minipage,colback=blue!15!white,colframe=blue!85!black,arc=8pt,outer arc=5pt]
