@@ -605,7 +605,7 @@ kable(Q15_03, col.names = c('Influence of climate change on',
                             'Reference')) %>%
   kable_styling(full_width = T, bootstrap_options = c('striped', 'condensed', 'bordered')) %>%
   row_spec(row = 0, bold = T, background = '#f5f6fa') %>%
-  column_spec(1, width = '22em') %>%
+  column_spec(1, width = '24em') %>%
   column_spec(c(3), width = '10em')
 } else {
   Q15_03L <- Q15_03$Reference
@@ -627,7 +627,7 @@ kable(Q15_03, col.names = c('Influence of climate change on',
   kable_styling(full_width = T, latex_options = c('hold_position', 'repeat_header')) %>%
   row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
   row_spec(c(1:3), hline_after = T) %>%
-  column_spec(1, width = '5cm') %>%
+  column_spec(1, width = '5.5cm') %>%
   column_spec(3, width = '3.5cm')
 }
 ```

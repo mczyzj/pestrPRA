@@ -44,7 +44,7 @@ if (knitr::is_html_output()) {
 kable(Q6, col.names = c('Kontynent',
                         'Rozmieszczenie',
                         'Komentarz do statusu agrofaga w poszczególnych krajach',
-                        'Reference')) %>%
+                        'Źródła')) %>%
   kable_styling(full_width = T, bootstrap_options = c('striped', 'condensed', 'bordered')) %>%
   row_spec(row = 0, bold = T, background = '#f5f6fa') %>%
   column_spec(1, width = '9em') %>%
@@ -52,7 +52,7 @@ kable(Q6, col.names = c('Kontynent',
   column_spec(4, width = '10em') %>%
   collapse_rows(columns = 1:2, valign = "middle")
 }  else {
-  Q6L <- Q6$Reference
+  Q6L <- Q6$Zrodlo
   
   Q6L <- Q6L %>%
     gsub('@', '', .) %>%
@@ -60,14 +60,14 @@ kable(Q6, col.names = c('Kontynent',
     lapply(formatingCite) %>%
     lapply(paste, collapse = '; ') %>% 
     unlist %>% 
-    data.frame(References = .) %>% 
+    data.frame(Zrodla = .) %>% 
     bind_cols(Q6, .) %>%
-    select(-'Reference')
-  Q6L$References[Q6L$References == '\\citeauthor{}, \\hyperlink{ref-}{\\citeyear{}}'] <- NA
+    select(-'Zrodlo')
+  Q6L$Zrodla[Q6L$Zrodla == '\\citeauthor{}, \\hyperlink{ref-}{\\citeyear{}}'] <- NA
   kable(Q6L, 'latex', booktabs = T, longtable = T,
         col.names = c('Kontynent', 'Rozmieszczenie',
                       'Komentarz do statusu agrofaga w poszczególnych krajach',
-                      'References'), escape = F) %>%
+                      'Źródła'), escape = F) %>%
     kable_styling(full_width = T,
                   latex_options = c('hold_position', 'repeat_header')) %>%
     column_spec(1, width = '2.5cm') %>%
@@ -92,13 +92,13 @@ if (knitr::is_html_output()) {
 kable(Q7, col.names = c('Nazwa naukowa szkodnika (nazwa powszechna)',
                'Obecność na obszarze PRA',
                'Komentarze',
-               'References')) %>%
+               'Źródła')) %>%
   kable_styling(full_width = T, bootstrap_options = c('striped', 'condensed', 'bordered')) %>%
   row_spec(row = 0, bold = T, background = '#f5f6fa') %>%
   column_spec(1:2, width = '15em') %>%
   column_spec(4, width = '12em')
 } else {
-  Q7L <- Q7$Reference
+  Q7L <- Q7$Zrodlo
   
   Q7L <- Q7L %>%
     gsub('@', '', .) %>%
@@ -106,15 +106,15 @@ kable(Q7, col.names = c('Nazwa naukowa szkodnika (nazwa powszechna)',
     lapply(formatingCite) %>%
     lapply(paste, collapse = '; ') %>% 
     unlist %>% 
-    data.frame(References = .) %>% 
+    data.frame(Zrodla = .) %>% 
     bind_cols(Q7, .) %>%
-    select(-'Reference')
-  Q7L$References[Q7L$References == '\\citeauthor{}, \\hyperlink{ref-}{\\citeyear{}}'] <- NA
+    select(-'Zrodlo')
+  Q7L$Zrodla[Q7L$Zrodla == '\\citeauthor{}, \\hyperlink{ref-}{\\citeyear{}}'] <- NA
   kable(Q7L, 'latex', booktabs = T,
     col.names = c('Nazwa naukowa szkodnika (nazwa powszechna)',
                'Obecność na obszarze PRA',
                'Komentarze',
-               'References'), escape = F) %>%
+               'Źródła'), escape = F) %>%
     kable_styling(full_width = T,
                   latex_options = c('striped', 'hold_position', 'repeat_header')) %>%
     row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
@@ -369,13 +369,13 @@ if (knitr::is_html_output()) {
 kable(Q12_02, col.names = c('Usługi ekosystemowe',
                             'Czy szkodnik wpływa na tą usługę ekosystemową?',
                             'Krótki opis wpływu',
-                            'Reference')) %>%
+                            'Źródła')) %>%
   kable_styling(full_width = T, bootstrap_options = c('striped', 'condensed', 'bordered')) %>%
   row_spec(row = 0, bold = T, background = '#f5f6fa') %>%
   column_spec(1, width = '10em') %>%
   column_spec(c(2,4), width = '12em')
 } else {
-  Q12_02L <- Q12_02$Reference
+  Q12_02L <- Q12_02$Zrodlo
   
   Q12_02L <- Q12_02L %>%
     gsub('@', '', .) %>%
@@ -383,15 +383,15 @@ kable(Q12_02, col.names = c('Usługi ekosystemowe',
     lapply(formatingCite) %>%
     lapply(paste, collapse = '; ') %>% 
     unlist %>% 
-    data.frame(References = .) %>% 
+    data.frame(Zrodla = .) %>% 
     bind_cols(Q12_02, .) %>%
-    select(-'Reference')
-  Q12_02L$References[Q12_02L$References == '\\citeauthor{}, \\hyperlink{ref-}{\\citeyear{}}'] <- NA
+    select(-'Zrodlo')
+  Q12_02L$Zrodla[Q12_02L$Zrodla == '\\citeauthor{}, \\hyperlink{ref-}{\\citeyear{}}'] <- NA
   kable(Q12_02L, booktabs = T, longtable = T,
         col.names = c('Usługi ekosystemowe',
                       'Czy szkodnik wpływa na tą usługę ekosystemową?',
                       'Krótki opis wpływu',
-                      'References'), escape = F) %>%
+                      'Źródła'), escape = F) %>%
   kable_styling(full_width = T, latex_options = c('hold_position', 'repeat_header')) %>%
   row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
   column_spec(1, width = '3cm') %>%
@@ -593,13 +593,13 @@ Q15_03 <- read.csv('changes.csv',
 if (knitr::is_html_output()) {
 kable(Q15_03, col.names = c('Wpływ zmian klimatu na',
                             'Zmiana',
-                            'Reference')) %>%
+                            'Źródła')) %>%
   kable_styling(full_width = T, bootstrap_options = c('striped', 'condensed', 'bordered')) %>%
   row_spec(row = 0, bold = T, background = '#f5f6fa') %>%
-  column_spec(1, width = '22em') %>%
+  column_spec(1, width = '24em') %>%
   column_spec(c(3), width = '10em')
 } else {
-  Q15_03L <- Q15_03$Reference
+  Q15_03L <- Q15_03$Zrodlo
   
   Q15_03L <- Q15_03L %>%
     gsub('@', '', .) %>%
@@ -607,18 +607,18 @@ kable(Q15_03, col.names = c('Wpływ zmian klimatu na',
     lapply(formatingCite) %>%
     lapply(paste, collapse = '; ') %>% 
     unlist %>% 
-    data.frame(References = .) %>% 
+    data.frame(Zrodla = .) %>% 
     bind_cols(Q15_03, .) %>%
-    select(-'Reference')
-  Q15_03L$References[Q15_03L$References == '\\citeauthor{}, \\hyperlink{ref-}{\\citeyear{}}'] <- NA
+    select(-'Zrodlo')
+  Q15_03L$Zrodla[Q15_03L$Zrodla == '\\citeauthor{}, \\hyperlink{ref-}{\\citeyear{}}'] <- NA
   kable(Q15_03L, booktabs = T, longtable = T,
         col.names = c('Wpływ zmian klimatu na',
                       'Zmiana',
-                      'Reference'), escape = F) %>%
+                      'Źródła'), escape = F) %>%
   kable_styling(full_width = T, latex_options = c('hold_position', 'repeat_header')) %>%
   row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
   row_spec(c(1:3), hline_after = T) %>%
-  column_spec(1, width = '5cm') %>%
+  column_spec(1, width = '5.5cm') %>%
   column_spec(3, width = '3.5cm')
 }
 ```
