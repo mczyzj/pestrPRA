@@ -1,2 +1,3 @@
-Host scientific name (common name),Presence in PRA area,"Comments (e.g. total area, major/minor crop in PRA area)",Reference
+Host_scientific_name_common_name,Presence_PRA_area,"Comments (e.g. total area, major/minor crop in PRA area)",Reference
 fill according to instructions,,,@eppo2018
+for instance *Betula pendula* (birch),Yes,Main forest tree,@eppo2018

@@ -1,14 +1,16 @@
 # (PART) Initiation {-}
 
-Reason for performing the PRA: *(e.g. interceptions, outbreak)*
+**Reason for performing the PRA:** *(e.g. interceptions, outbreak)*
 
-PRA area: *specify the PRA area being assessed*
+**PRA area:** *specify the PRA area being assessed*
 
 # (PART) Pest risk assessment {-}
 
 (@) Taxonomy:
 
 *e.g. Genus, species/ subspecies, Authority, Family, Order, Kingdom. Include information on strains and populations, etc. if relevant, and synonyms if appropriate.* [@eppo2018]
+
+**Synonyms:**
 
 **Common name:**
 
@@ -22,11 +24,11 @@ PRA area: *specify the PRA area being assessed*
 
 (@) Is the pest a vector?
 
-Yes / No
+*Yes / No*
 
 (@) Is the vector needed for pest entry or spread?
 
-Yes / No
+*Yes / No*
 
 (@) Regulatory status of the pest:
 
@@ -110,6 +112,9 @@ kable(Q7, col.names = c('Host scientific name (common name)',
     bind_cols(Q7, .) %>%
     select(-'Reference')
   Q7L$References[Q7L$References == '\\citeauthor{}, \\hyperlink{ref-}{\\citeyear{}}'] <- NA
+  Q7L[, 1] <- Q7L[, 1] %>%
+    gsub("(\\*[A-Z]*[a-z]*\\s*[a-z]*\\*)","\\\\textit{\\1}", .) %>%
+    gsub("\\*", '',.)
   kable(Q7L, 'latex', booktabs = T, longtable = T,
     col.names = c('Host scientific name (common name)',
                'Presence in PRA area',
@@ -118,7 +123,9 @@ kable(Q7, col.names = c('Host scientific name (common name)',
     kable_styling(full_width = T,
                   latex_options = c('hold_position', 'repeat_header')) %>%
     row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
-    column_spec(c(1,2,4), width = '3cm')
+    column_spec(1, width = '3.5cm') %>%
+    column_spec(2, width = '2.5cm') %>%
+    column_spec(4, width = '3cm')
 }
 ```
 

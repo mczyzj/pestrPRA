@@ -25,11 +25,11 @@
 
 (@) Czy agrofag jest wektorem?
 
-Tak / Nie
+*Tak / Nie*
 
 (@) Czy do wejścia lub rozprzestrzenienia agrofaga potrzebny jest wektor.
 
-Tak / Nie
+*Tak / Nie*
 
 (@) Status regulacji agrofaga:
 
@@ -112,18 +112,20 @@ kable(Q7, col.names = c('Nazwa naukowa szkodnika (nazwa powszechna)',
     bind_cols(Q7, .) %>%
     select(-'Zrodlo')
   Q7L$Zrodla[Q7L$Zrodla == '\\citeauthor{}, \\hyperlink{ref-}{\\citeyear{}}'] <- NA
-  Q7L$Nazwa_szkodnika <- Q7L$Nazwa_szkodnika %>%
+  Q7L$Nazwa_zywiciela <- Q7L$Nazwa_zywiciela %>%
     gsub("(\\*[A-Z]*[a-z]*\\s*[a-z]*\\*)","\\\\textit{\\1}", .) %>%
     gsub("\\*", '',.)
   kable(Q7L, 'latex', booktabs = T, longtable = T,
-    col.names = c('Nazwa naukowa szkodnika (nazwa powszechna)',
+    col.names = c('Nazwa naukowa żywiciela (nazwa powszechna)',
                'Obecność na obszarze PRA',
                'Komentarze',
                'Źródła'), escape = F) %>%
     kable_styling(full_width = T,
-                  latex_options = c('striped', 'hold_position', 'repeat_header')) %>%
+                  latex_options = c('hold_position', 'repeat_header')) %>%
     row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
-    column_spec(c(1,2,4), width = '3cm')
+    column_spec(1, width = '3.5cm') %>%
+    column_spec(2, width = '2.5cm') %>%
+    column_spec(4, width = '3cm')
 }
 ```
 

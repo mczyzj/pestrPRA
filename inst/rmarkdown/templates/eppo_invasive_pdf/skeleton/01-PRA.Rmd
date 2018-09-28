@@ -1,14 +1,16 @@
 # (PART) Initiation {-}
 
-Reason for performing the PRA: *(e.g. interceptions, outbreak)*
+**Reason for performing the PRA:** *(e.g. interceptions, outbreak)*
 
-PRA area: *specify the PRA area being assessed*
+**PRA area:** *specify the PRA area being assessed*
 
 # (PART) Pest risk assessment {-}
 
 (@) Taxonomy:
 
 *e.g. Genus, species/ subspecies, Authority, Family, Order, Kingdom. Include information on strains and populations, etc. if relevant, and synonyms if appropriate.* [@eppo2018]
+
+**Synonyms:**
 
 **Common name:**
 
@@ -24,11 +26,11 @@ PRA area: *specify the PRA area being assessed*
 
 (@) Is the pest a vector?
 
-Yes / No
+*Yes / No*
 
 (@) Is the vector needed for pest entry or spread?
 
-Yes / No
+*Yes / No*
 
 (@) Regulatory status of the pest:
 
@@ -163,6 +165,9 @@ if (knitr::is_html_output()) {
     row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
     column_spec(1, width = '22em')
 } else {
+  Q8A[, 2] <- Q8A[, 2] %>%
+    gsub("(\\*[A-Z]*\\.*[a-z]*\\s*[a-z]*\\*)","\\\\textit{\\1}", .) %>%
+    gsub("\\*", '',.)
   kable(Q8A, 'latex', booktabs = T, longtable = T,
         col.names = c('Possible pathway', 'Pathway:')) %>%
     kable_styling(full_width = T,
@@ -379,6 +384,9 @@ kable(Q12_02, col.names = c('Ecosystem service',
     bind_cols(Q12_02, .) %>%
     select(-'Reference')
   Q12_02L$References[Q12_02L$References == '\\citeauthor{}, \\hyperlink{ref-}{\\citeyear{}}'] <- NA
+  Q12_02L[, 3] <- Q12_02L[, 3] %>%
+    gsub("(\\*[A-Z]*\\.*[a-z]*\\s*[a-z]*\\*)","\\\\textit{\\1}", .) %>%
+    gsub("\\*", '',.)
   kable(Q12_02L, booktabs = T, longtable = T,
         col.names = c('Ecosystem service',
                       'Does the pest impact on this Ecosystem service?',
