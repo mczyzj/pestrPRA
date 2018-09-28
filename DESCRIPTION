@@ -1,7 +1,7 @@
 Package: pestrPRA
 Type: Package
 Title: Bookdown Templates for Express Pest Risk Assessment (EPPO)
-Version: 0.4.1
+Version: 0.5.0
 Author: person("Michal Jan", "Czyz", email = "m.czyz.j@gmail.com",
   role = c("aut", "cre"))
 Maintainer: The package maintainer <yourself@somewhere.net>
@@ -24,5 +24,6 @@ Encoding: UTF-8
 LazyData: true
 Suggests:
     pestr,
-    testthat
+    testthat,
+    testit
 RoxygenNote: 6.1.0

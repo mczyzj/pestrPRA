@@ -15,7 +15,7 @@
 #' @encoding UTF-8
 #'
 #' @inheritParams rmarkdown::pdf_document
-#' @param extra_dependencies,... Additional function arguments to pass to the
+#' @param ... Additional function arguments to pass to the
 #'        base R Markdown pdf output formatter
 #' @rdname eppoPRA
 #' @export
@@ -23,18 +23,12 @@ eppo_invasive_pdf <- function(toc = FALSE, highlight = "default", ...){
 
   expressPRA <- bookdown::pdf_document2(template = 'template.tex',
                                         toc = toc,
-                                        highlight = highlight,
-                                        #keep_tex = TRUE,
-                                        #dev = 'cairo_pdf',
-                                        #latex_engine = 'xelatex',
-                                        ...)
+                                        highlight = highlight, ...)
 
   expressPRA
 }
 
 #' @inheritParams rmarkdown::pdf_document
-#' @param extra_dependencies,... Additional function arguments to pass to the
-#'        base R Markdown pdf output formatter
 #' @rdname eppoPRA
 #' @export
 eppo_pest_pdf <- function(toc = FALSE, highlight = "default", ...){
@@ -42,16 +36,11 @@ eppo_pest_pdf <- function(toc = FALSE, highlight = "default", ...){
   expressPRA <- bookdown::pdf_document2(template = 'template.tex',
                                           toc = toc,
                                           highlight = highlight, ...)
-                                          #keep_tex = TRUE,
-                                          #dev = 'cairo_pdf',
-                                          #latex_engine = 'xelatex',
 
   expressPRA
 }
 
 #' @inheritParams rmarkdown::pdf_document
-#' @param extra_dependencies,... Additional function arguments to pass to the
-#'        base R Markdown pdf output formatter
 #' @rdname eppoPRA
 #' @export
 eppo_pest_pdf_pl <- function(toc = FALSE, highlight = "default", ...){
@@ -59,9 +48,6 @@ eppo_pest_pdf_pl <- function(toc = FALSE, highlight = "default", ...){
   expressPRA <- bookdown::pdf_document2(template = 'template.tex',
                                         toc = toc,
                                         highlight = highlight, ...)
-  #keep_tex = TRUE,
-  #dev = 'cairo_pdf',
-  #latex_engine = 'xelatex',
 
   expressPRA
 }

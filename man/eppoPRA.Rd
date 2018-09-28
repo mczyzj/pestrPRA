@@ -20,13 +20,7 @@ eppo_pest_pdf_pl(toc = FALSE, highlight = "default", ...)
 "default", "tango", "pygments", "kate", "monochrome", "espresso",
 "zenburn", and "haddock". Pass \code{NULL} to prevent syntax highlighting.}
 
-\item{extra_dependencies, ...}{Additional function arguments to pass to the
-base R Markdown pdf output formatter}
-
-\item{extra_dependencies, ...}{Additional function arguments to pass to the
-base R Markdown pdf output formatter}
-
-\item{extra_dependencies, ...}{Additional function arguments to pass to the
+\item{...}{Additional function arguments to pass to the
 base R Markdown pdf output formatter}
 }
 \description{

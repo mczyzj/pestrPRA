@@ -4,7 +4,6 @@
 #' \href{https://www.eppo.int/RESOURCES/eppo_standards/pm5_pra}{EPPO PRA}.
 #'
 #' @importFrom magrittr %>%
-#' @importFrom rlang .data
 #' @importFrom stats setNames
 #' @import dplyr
 #' @docType package
