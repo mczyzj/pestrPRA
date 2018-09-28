@@ -22,7 +22,7 @@ devtools::install_github("mczyzj/pestrPRA")
 
 ## Usage
 
-This package was tested and proven to correctly generate \*.pdf files with Ubuntu 16.10 with *TeX Live* 2018 and 18.04 with *TeX Live* 2017. I cannot guarantee at the moment that ther is a way to make \*.pdf under Windows, nevertheless \*.html output should work.
+This package was tested and proven to correctly generate \*.pdf files with **Ubuntu** 16.10 with *TeX Live* 2018 and 18.04 with *TeX Live* 2017. I cannot guarantee at the moment that ther is a way to make \*.pdf under **Windows**, nevertheless \*.html output should work.
 
 You can create new folder with all the necessary files using RStudio menu > File > New file > RMarkdown > Template
 
@@ -39,4 +39,5 @@ Most important tables, that one should fill are stored in separate \*.csv files.
 - preferred name, synonyms and common names
 - distribution
 - categorization
-can be downloaded automaticaly from **EPPO data services** by using **pestr** package.
+
+can be downloaded automaticaly from **EPPO data services** by using [pestr](https://github.com/mczyzj/pestr) package.
