@@ -1,14 +1,16 @@
 # (PART) Wstęp {-}
 
-Powód wykonania PRA: *(np. przechwycenie, pojaw)*
+**Powód wykonania PRA:** *(np. przechwycenie, pojaw)*
 
-Obszar PRA: **Rzeczpospolita Polska**
+**Obszar PRA:** Rzeczpospolita Polska
 
 # (PART) Ocena zagrożenia Agrofagiem {-}
 
 (@) Taksonomia:
 
 *np. Rodzaj, gatunek/ podgatunek, autorstwo, Rodzina, Rząd, Królestwo. Załączyć informację o szczepie i poplacjach, etc. jeśli ma zastosowanie oraz synonimy jeśli istotne.* [@eppo2018]
+
+**Synonimy:**
 
 **Nazwa powszechna:**
 
