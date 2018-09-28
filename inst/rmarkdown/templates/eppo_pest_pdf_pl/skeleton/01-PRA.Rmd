@@ -549,7 +549,7 @@ if (knitr::is_html_output()) {
 
 (@) Zmiana kliamtu:
 
-*Consider the influence of projected climate change scenarios on the pest.*
+*Rozważyć wpływ potencjalnej zmiany kliamtu na szkodnika.*
 
   I) Który scenariusz zmiany klimatu jest uwzględniony na lata 2050 do 2100\*
 
