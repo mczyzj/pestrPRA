@@ -112,7 +112,10 @@ kable(Q7, col.names = c('Nazwa naukowa szkodnika (nazwa powszechna)',
     bind_cols(Q7, .) %>%
     select(-'Zrodlo')
   Q7L$Zrodla[Q7L$Zrodla == '\\citeauthor{}, \\hyperlink{ref-}{\\citeyear{}}'] <- NA
-  kable(Q7L, 'latex', booktabs = T,
+  Q7L$Nazwa_szkodnika <- Q7L$Nazwa_szkodnika %>%
+    gsub("(\\*[A-Z]*[a-z]*\\s*[a-z]*\\*)","\\\\textit{\\1}", .) %>%
+    gsub("\\*", '',.)
+  kable(Q7L, 'latex', booktabs = T, longtable = T,
     col.names = c('Nazwa naukowa szkodnika (nazwa powszechna)',
                'Obecność na obszarze PRA',
                'Komentarze',
@@ -167,6 +170,9 @@ if (knitr::is_html_output()) {
     row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
     column_spec(1, width = '22em')
 } else {
+  Q8A[, 2] <- Q8A[, 2] %>%
+    gsub("(\\*[A-Z]*\\.*[a-z]*\\s*[a-z]*\\*)","\\\\textit{\\1}", .) %>%
+    gsub("\\*", '',.)
   kable(Q8A, 'latex', booktabs = T, longtable = T,
         col.names = c('Możliwa droga przenikania',
                       'Droga przenikania:')) %>%
@@ -389,6 +395,9 @@ kable(Q12_02, col.names = c('Usługi ekosystemowe',
     bind_cols(Q12_02, .) %>%
     select(-'Zrodlo')
   Q12_02L$Zrodla[Q12_02L$Zrodla == '\\citeauthor{}, \\hyperlink{ref-}{\\citeyear{}}'] <- NA
+  Q12_02L[, 3] <- Q12_02L[, 3] %>%
+    gsub("(\\*[A-Z]*\\.*[a-z]*\\s*[a-z]*\\*)","\\\\textit{\\1}", .) %>%
+    gsub("\\*", '',.)
   kable(Q12_02L, booktabs = T, longtable = T,
         col.names = c('Usługi ekosystemowe',
                       'Czy szkodnik wpływa na tą usługę ekosystemową?',
