@@ -34,6 +34,35 @@
 
 *Is the pest already regulated by any NPPO, or recommended for regulation by any RPPO? (Assessors can check this by reference to EPPO PQR, RPPO and IPPC websites in addition to normal search mechanisms).*
 
+```{r echo = F, eval = T}
+Q5 <- read.csv('categorization.csv',
+               header = T,
+               stringsAsFactors = F)
+if (knitr::is_html_output()) {
+kable(Q5, col.names = c('Continent/Region',
+                        'Country/RPPP',
+                        'Status',
+                        'Year')) %>%
+  kable_styling(full_width = T, bootstrap_options = c('striped', 'condensed', 'bordered')) %>%
+  row_spec(row = 0, bold = T, background = '#f5f6fa') %>%
+  column_spec(1, width = '10em') %>%
+  column_spec(4, width = '8em') %>%
+  collapse_rows(columns = 1:2, valign = "middle")
+}  else {
+  kable(Q5, 'latex', booktabs = T, longtable = T,
+        col.names = c(col.names = c('Continent/Region',
+                                    'Country/RPPP',
+                                    'Status',
+                                    'Year'))) %>%
+    kable_styling(full_width = T,
+                  latex_options = c('hold_position', 'repeat_header')) %>%
+    column_spec(1, width = '4cm') %>%
+    column_spec(4, width = '2.5cm') %>%
+    row_spec(row = 0, bold = T, background = '#F5F6FA') %>%
+    collapse_rows(columns = 1:2, latex_hline = "major", valign = "middle")
+}
+```
+
 (@) Distribution:
 
 ```{r echo = F, eval = T}
